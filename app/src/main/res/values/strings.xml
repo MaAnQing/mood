@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">mood</string>
+
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_example">Example action</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_base">BaseActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+
+    <string-array name="menu_list">
+        <item>首页</item>
+        <item>登录</item>
+        <item>录音列表</item>
+        <item>设置</item>
+        <item>关于</item>
+        <item>关于反馈</item>
+    </string-array>
+</resources>
