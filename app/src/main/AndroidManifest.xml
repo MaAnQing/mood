@@ -3,20 +3,23 @@
     package="com.hm.madroid.mood" >
 
     <application
+        android:name=".MoodApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:name=".MoodApp">
+        android:theme="@style/AppTheme" >
 
-        <!-- for ActiveAndroid-->
-        <meta-data android:name="AA_DB_NAME" android:value="mood.db" />
-        <meta-data android:name="AA_DB_VERSION" android:value="2" />
+        <!-- for ActiveAndroid -->
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="mood.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="2" />
         <meta-data
             android:name="AA_MODELS"
             android:value="com.hm.madroid.mood.database.FileInfo, com.hm.madroid.mood.database.UserInfo" />
-        <!-- for ActiveAndroid-->
-
+        <!-- for ActiveAndroid -->
 
         <activity
             android:name=".MainActivity"
@@ -27,10 +30,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.BaseActivity"
             android:label="@string/title_activity_base" >
+        </activity>
+        <activity
+            android:name=".ui.RecordListActivity"
+            android:label="@string/title_activity_record_list" >
         </activity>
     </application>
 

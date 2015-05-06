@@ -1,10 +1,8 @@
 package com.hm.madroid.mood;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
+import android.app.Fragment;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -15,12 +13,18 @@ import android.support.v4.widget.DrawerLayout;
 
 import com.hm.madroid.mood.database.FileInfo;
 import com.hm.madroid.mood.database.FileInfoManager;
+import com.hm.madroid.mood.ui.BaseActivity;
+import com.hm.madroid.mood.ui.NavigationDrawerFragment;
+import com.hm.madroid.mood.ui.RecordListFragment;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
 
-public class MainActivity extends ActionBarActivity
+
+public class MainActivity extends BaseActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /**
@@ -50,6 +54,7 @@ public class MainActivity extends ActionBarActivity
         initDB();
     }
 
+
     private  void initDB(){
         FileInfoManager manager = FileInfoManager.getInstance() ;
         List<FileInfo> infos = new ArrayList<>() ;
@@ -64,13 +69,41 @@ public class MainActivity extends ActionBarActivity
         }
         manager.addInfos(infos) ;
     }
+
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        EventBus.getDefault().register(this);
+//    }
+//
+//    @Override
+//    public void onStop() {
+//        EventBus.getDefault().unregister(this);
+//        super.onStop();
+//    }
+//
+//    public void onEvent(){
+//
+//    }
+
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+
+        Fragment fragment ;
+        switch (position){
+//            case 0:
+//                break;
+//            case 1:
+//                break;
+            case 2:
+                fragment = new RecordListFragment() ;
+                break;
+            default:
+                fragment = new RecordListFragment() ;
+                break;
+        }
+        loadFragment(R.id.container, fragment);
+
     }
 
     public void onSectionAttached(int number) {

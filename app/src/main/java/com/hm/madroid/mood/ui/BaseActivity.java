@@ -1,5 +1,6 @@
 package com.hm.madroid.mood.ui;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -25,6 +26,10 @@ public class BaseActivity extends ActionBarActivity {
 
     public void ShowLongToast(String s){
         Toast.makeText(mContext,s,Toast.LENGTH_LONG).show();
+    }
+
+    public void loadFragment(int container,Fragment fragment){
+        getFragmentManager().beginTransaction().replace(container,fragment).addToBackStack(fragment.getClass().getName()).commit();
     }
 
 }
