@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        initDB();
+        //initDB();
     }
 
 
