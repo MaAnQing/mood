@@ -11,15 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
+import com.hm.madroid.mood.database.AudioInfo;
+import com.hm.madroid.mood.database.AudioInfoManager;
 import com.hm.madroid.mood.ui.BaseActivity;
 import com.hm.madroid.mood.ui.NavigationDrawerFragment;
 import com.hm.madroid.mood.ui.RecordListFragment;
 
-import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.List;
-
-import de.greenrobot.event.EventBus;
 
 
 public class MainActivity extends BaseActivity
@@ -49,23 +48,23 @@ public class MainActivity extends BaseActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        //initDB();
+        initDB();
     }
 
 
     private  void initDB(){
-//        FileInfoManager manager = FileInfoManager.getInstance() ;
-//        List<FileInfo> infos = new ArrayList<>() ;
-//        for (int i =0 ; i<=3 ;i++){
-//            FileInfo info = new FileInfo() ;
-//            info.address = "address" + i ;
-//            info.date = "DATE" + i ;
-//            info.duration = "duration" + i ;
-//            info.mood = i ;
-//            info.name = "name" + i ;
-//            infos.add(info);
-//        }
-//        manager.addInfos(infos) ;
+        AudioInfoManager manager = AudioInfoManager.getInstance() ;
+        List<AudioInfo> infos = new ArrayList<>() ;
+        for (int i =0 ; i<=3 ;i++){
+            AudioInfo info = new AudioInfo() ;
+            info.address = "address" + i ;
+            info.date = "DATE" + i ;
+            info.duration = "duration" + i ;
+            info.mood = i ;
+            info.name = "name" + i ;
+            infos.add(info);
+        }
+        manager.addInfos(infos) ;
     }
 
 //    @Override

@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.hm.madroid.mood.R;
 import com.hm.madroid.mood.adapter.MoodAdapter;
 import com.hm.madroid.mood.database.AudioInfo;
+import com.hm.madroid.mood.database.AudioInfoManager;
 import com.hm.madroid.mood.viewholder.MoodViewHolder;
 
 import java.util.List;
@@ -121,9 +122,9 @@ public class RecordListFragment extends Fragment implements MoodViewHolder.onIte
     }
 
     private List<AudioInfo> getDataSet(){
-//        FileInfoManager manager = FileInfoManager.getInstance() ;
-//        mDataSet = manager.getInfos(0);
-//        Log.i(TAG,"dataset :" + mDataSet.toString()) ;
+        AudioInfoManager manager = AudioInfoManager.getInstance() ;
+        mDataSet = manager.getAllInfos();
+        Log.i(TAG,"dataset :" + mDataSet) ;
         return mDataSet ;
     }
 
@@ -160,12 +161,9 @@ public class RecordListFragment extends Fragment implements MoodViewHolder.onIte
     //recycler item click
     @Override
     public void onClick(View view, int position) {
-        //Toast.makeText(getActivity(),"position:" + position,Toast.LENGTH_SHORT).show();
         Log.i("madroid", "position: " + position) ;
         mDataSet.remove(position) ;
         mAdapter.notifyItemRemoved(position);
-        //mAdapter.notifyItemChanged(position);
-        //mAdapter.notifyItemMoved(position,position + 2);
     }
 
     @Override

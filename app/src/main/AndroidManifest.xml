@@ -10,7 +10,6 @@
         android:theme="@style/AppTheme" >
 
         <!-- for ActiveAndroid -->
-       <!--
         <meta-data
             android:name="AA_DB_NAME"
             android:value="mood.db" />
@@ -19,8 +18,8 @@
             android:value="4" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="com.hm.madroid.mood.database.FileInfo, com.hm.madroid.mood.database.UserInfo" />
-            -->
+            android:value="com.hm.madroid.mood.database.AudioInfo, com.hm.madroid.mood.database.UserInfo" />
+
         <!-- for ActiveAndroid -->
 
         <activity

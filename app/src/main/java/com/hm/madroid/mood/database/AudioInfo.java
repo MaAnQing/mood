@@ -1,23 +1,34 @@
 package com.hm.madroid.mood.database;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+
 /**
  * Created by madroid on 15-5-7.
  */
-public class AudioInfo {
+@Table(name = "AudioInfos",id = "_id")
+public class AudioInfo extends Model {
 
-
+    @Column(name = "Name")
     public String name;
 
+    @Column(name = "Duration")
     public String duration;
 
+    @Column(name = "Date")
     public String date;
 
+    @Column(name = "Mood")
     public int mood;
 
+    @Column(name = "UserId")
     public int userId;
 
+    @Column(name = "Address")
     public String address;
 
+    @Column(name = "TimeStamp")
     public long timeStamp;
 
     public AudioInfo(){
