@@ -10,4 +10,6 @@ public class Constant {
     public static final int MOOD_ANGRY = 2 ;
     public static final int MOOD_NEUTRAL = 3 ;
 
+    public static final int ID_ADMIN = -1 ;
+
 }

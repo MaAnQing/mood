@@ -32,12 +32,15 @@ public class UserInfo extends Model {
     @Column(name = "Address")
     public String address;
 
+    @Column(name = "UserId")
+    public int userId;
+
     // 确保每个model类中都有一个默认的构造方法
     public UserInfo(){
 
     }
 
-    public UserInfo(String name,String pwd,String phone ,String email,int gender,String birthday,String address){
+    public UserInfo(String name,String pwd,String phone ,String email,int gender,String birthday,String address ,int id){
         this.userName = name ;
         this.password = pwd ;
         this.phoneNumber = phone ;
@@ -45,6 +48,7 @@ public class UserInfo extends Model {
         this.gender = gender ;
         this.birthday = birthday ;
         this.address = address ;
+        this.userId = id ;
 
     }
 }

@@ -31,11 +31,14 @@ public class AudioInfo extends Model {
     @Column(name = "TimeStamp")
     public long timeStamp;
 
+    @Column(name = "AudioPath")
+    public String path;
+
     public AudioInfo(){
         super();
     }
 
-    public AudioInfo(String name,String duration,String date,int mood,int id,String address,long time){
+    public AudioInfo(String name,String duration,String date,int mood,int id,String address,long time,String path){
         this.name = name ;
         this.duration = duration ;
         this.date = date ;
@@ -43,6 +46,7 @@ public class AudioInfo extends Model {
         this.userId = id ;
         this.address = address ;
         this.timeStamp = time ;
+        this.path = path ;
 
     }
 
