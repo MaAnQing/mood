@@ -1,4 +1,4 @@
-package com.hm.madroid.mood;
+package com.hm.madroid.mood.ui;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -11,11 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 
+import com.hm.madroid.mood.R;
 import com.hm.madroid.mood.database.AudioInfo;
 import com.hm.madroid.mood.database.AudioInfoManager;
-import com.hm.madroid.mood.ui.BaseActivity;
-import com.hm.madroid.mood.ui.NavigationDrawerFragment;
-import com.hm.madroid.mood.ui.RecordListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +46,7 @@ public class MainActivity extends BaseActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        initDB();
+        //initDB();
     }
 
 
@@ -94,6 +92,9 @@ public class MainActivity extends BaseActivity
 //                break;
             case 2:
                 fragment = new RecordListFragment() ;
+                break;
+            case 3:
+                fragment = new SettingFragment() ;
                 break;
             default:
                 fragment = new RecordListFragment() ;

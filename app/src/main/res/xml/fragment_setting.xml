@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 设置的类别 -->
+    <PreferenceCategory
+        android:key="category_phone"
+        android:summary="通话录音设置"
+        android:title="通话录音">
+
+        <CheckBoxPreference
+            android:key="record_phone"
+            android:summary="@string/record_phone_summary"
+            android:title="@string/record_phone_title"/>
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="category_record"
+        android:summary="个人信息"
+        android:title="普通录音">
+
+        <CheckBoxPreference
+            android:key="record_channel"
+            android:summary="@string/record_channel_summary"
+            android:title="@string/record_channel_title"/>
+
+        <ListPreference
+            android:key="record_sample_rate"
+            android:title="@string/record_sample_rate_title"
+            android:summary="@string/record_sample_rate_summary"
+            android:dialogTitle="@string/record_sample_rate_title"
+            android:entries="@array/record_sample_rate"
+            android:entryValues="@array/record_sample_rate_value"/>
+
+        <ListPreference
+            android:key="audio_format"
+            android:title="@string/audio_format_title"
+            android:summary="@string/audio_format_summary"
+            android:dialogTitle="@string/audio_format_title"
+            android:entries="@array/audio_format"
+            android:entryValues="@array/audio_format_value"/>
+
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:key="category_other"
+        android:summary="其他设置"
+        android:title="其他">
+
+        <ListPreference
+            android:key="auto_delete"
+            android:title="@string/auto_delete_title"
+            android:summary="@string/auto_delete_summary"
+            android:dialogTitle="@string/auto_delete_title"
+            android:entries="@array/auto_delete"
+            android:entryValues="@array/auto_delete_value"/>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

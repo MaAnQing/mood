@@ -34,7 +34,7 @@
         <!-- for ActiveAndroid -->
 
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/app_name" >
 
         </activity>

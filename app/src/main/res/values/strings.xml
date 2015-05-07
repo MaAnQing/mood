@@ -18,6 +18,13 @@
     <string name="title_login">登录</string>
     <string name="action_sign_in">登录或注册</string>
 
+    <string name="category_other_title">其他</string>
+
+    <string name="record_channel_title">双通道</string>
+    <string name="record_channel_summary">勾选后，将以双通道录音</string>
+    <string name="record_phone_title">通话时录音</string>
+    <string name="record_phone_summary">勾选后，通话时软件将会在后台录音</string>
+
     <string-array name="menu_list">
         <item>首页</item>
         <item>登录</item>
@@ -25,6 +32,65 @@
         <item>设置</item>
         <item>关于</item>
         <item>反馈</item>
+    </string-array>
+
+
+    <string name="record_sample_rate_title">采样率</string>
+    <string name="record_sample_rate_summary">设置录音时的音频采样率</string>
+    <string-array name="record_sample_rate">
+        <item>8000 HZ</item>
+        <item>11025 HZ</item>
+        <item>16000 HZ</item>
+        <item>22050 HZ</item>
+        <item>32000 HZ</item>
+        <item>441000 HZ</item>
+    </string-array>
+
+    <string-array name="record_sample_rate_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+
+    <string name="audio_format_title">音频格式</string>
+    <string name="audio_format_summary">设置录音时的音频采样率</string>
+    <string-array name="audio_format">
+        <item>Standard Quality(3GPP)</item>
+        <item>Standard Quality(AMR)</item>
+        <item>Better Quality(AMR_WB)</item>
+        <item>High Quality(AAC)</item>
+        <item>Highest Quality(3GPP)</item>
+    </string-array>
+
+    <string-array name="audio_format_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+
+    <string name="auto_delete_title">自动清理</string>
+    <string name="auto_delete_summary">设置自动清理本地录音文件的时间</string>
+    <string-array name="auto_delete">
+        <item>不自动清理</item>
+        <item>一天以前</item>
+        <item>一周以前</item>
+        <item>两周以前</item>
+        <item>一个月以前</item>
+    </string-array>
+
+    <string-array name="auto_delete_value">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 
 
