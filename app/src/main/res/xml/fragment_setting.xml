@@ -4,8 +4,8 @@
     <!-- 设置的类别 -->
     <PreferenceCategory
         android:key="category_phone"
-        android:summary="通话录音设置"
-        android:title="通话录音">
+        android:summary="@string/category_other_summary"
+        android:title="@string/category_hone_title">
 
         <CheckBoxPreference
             android:key="record_phone"
@@ -17,8 +17,8 @@
 
     <PreferenceCategory
         android:key="category_record"
-        android:summary="个人信息"
-        android:title="普通录音">
+        android:summary="@string/category_record_summary"
+        android:title="@string/category_record_title">
 
         <CheckBoxPreference
             android:key="record_channel"
@@ -46,8 +46,8 @@
 
     <PreferenceCategory
         android:key="category_other"
-        android:summary="其他设置"
-        android:title="其他">
+        android:summary="@string/category_other_summary"
+        android:title="@string/category_other_title">
 
         <ListPreference
             android:key="auto_delete"

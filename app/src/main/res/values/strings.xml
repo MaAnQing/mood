@@ -18,7 +18,12 @@
     <string name="title_login">登录</string>
     <string name="action_sign_in">登录或注册</string>
 
+    <string name="category_hone_title">通话录音</string>
+    <string name="category_phone_summary">通话录音设置</string>
+    <string name="category_record_title">普通录音</string>
+    <string name="category_record_summary">普通录音设置</string>
     <string name="category_other_title">其他</string>
+    <string name="category_other_summary">其他设置</string>
 
     <string name="record_channel_title">双通道</string>
     <string name="record_channel_summary">勾选后，将以双通道录音</string>
