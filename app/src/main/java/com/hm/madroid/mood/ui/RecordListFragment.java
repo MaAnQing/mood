@@ -17,10 +17,9 @@ import android.widget.Toast;
 
 import com.hm.madroid.mood.R;
 import com.hm.madroid.mood.adapter.MoodAdapter;
-import com.hm.madroid.mood.model.MoodItem;
+import com.hm.madroid.mood.database.AudioInfo;
 import com.hm.madroid.mood.viewholder.MoodViewHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.greenrobot.event.EventBus;
@@ -38,6 +37,7 @@ public class RecordListFragment extends Fragment implements MoodViewHolder.onIte
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private static final String TAG = "RecordListFragment";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -45,7 +45,7 @@ public class RecordListFragment extends Fragment implements MoodViewHolder.onIte
 
     private RecyclerView mRecycler ;
     private MoodAdapter mAdapter ;
-    private List<MoodItem> mDataSet ;
+    private List<AudioInfo> mDataSet ;
     private Context mContext ;
 
 
@@ -88,6 +88,8 @@ public class RecordListFragment extends Fragment implements MoodViewHolder.onIte
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_record_list, container, false);
         initView(view) ;
+        Log.i(TAG, "onCreateView :") ;
+
         return view ;
     }
 
@@ -118,18 +120,15 @@ public class RecordListFragment extends Fragment implements MoodViewHolder.onIte
         super.onStop();
     }
 
-    private List<MoodItem> getDataSet(){
-        mDataSet = new ArrayList<MoodItem>() ;
-        for (int i=0 ;i < 100 ; i++){
-            MoodItem item = new MoodItem("name " + i,"date " + i,"duration " +i,R.drawable.user_icon,"address " +i) ;
-            mDataSet.add(item);
-        }
-
+    private List<AudioInfo> getDataSet(){
+//        FileInfoManager manager = FileInfoManager.getInstance() ;
+//        mDataSet = manager.getInfos(0);
+//        Log.i(TAG,"dataset :" + mDataSet.toString()) ;
         return mDataSet ;
     }
 
     //录音结束后，刷新列表
-    public void onEvent(MoodItem info){
+    public void onEvent(AudioInfo info){
         //TODO:
     }
 

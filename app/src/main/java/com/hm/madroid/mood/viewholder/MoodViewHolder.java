@@ -5,8 +5,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hm.madroid.mood.Constant;
 import com.hm.madroid.mood.R;
-import com.hm.madroid.mood.model.MoodItem;
+import com.hm.madroid.mood.database.AudioInfo;
 
 
 /**
@@ -40,12 +41,33 @@ public class MoodViewHolder extends RecyclerView.ViewHolder implements View.OnCl
 
     }
 
-    public void setValue(MoodItem value){
-        name.setText(value.getName());
-        date.setText(value.getDate());
-        duration.setText(value.getDuration());
-        address.setText(value.getAddress());
-        picId.setImageResource(value.getPicID());
+    public void setValue(AudioInfo value){
+        name.setText(value.name);
+        date.setText(value.date);
+        duration.setText(value.duration);
+        address.setText(value.address);
+        picId.setImageResource(mood2Pic(value.mood));
+    }
+
+    private int mood2Pic(int mood){
+        int resId ;
+        switch (mood){
+            case Constant.MOOD_ANGRY :
+                resId = R.drawable.list_angry ;
+                break;
+            case Constant.MOOD_HAPPY:
+                resId = R.drawable.list_happy ;
+                break;
+            case Constant.MOOD_NEUTRAL:
+                resId = R.drawable.list_neutral ;
+                break;
+            case Constant.MOOD_SAD:
+                resId = R.drawable.list_sad ;
+                break;
+            default:
+                resId = R.drawable.list_neutral ;
+        }
+        return resId ;
     }
 
     public void setClickedListener(onItemClickedListener listener){

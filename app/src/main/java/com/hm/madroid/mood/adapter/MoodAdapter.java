@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 
 import com.hm.madroid.mood.R;
-import com.hm.madroid.mood.model.MoodItem;
+import com.hm.madroid.mood.database.AudioInfo;
 import com.hm.madroid.mood.viewholder.MoodViewHolder;
 
 import java.util.List;
@@ -17,12 +17,12 @@ import java.util.List;
  */
 public class MoodAdapter extends RecyclerView.Adapter<MoodViewHolder> {
 
-    private List<MoodItem> mDataSet ;
+    private List<AudioInfo> mDataSet ;
 
     private MoodViewHolder.onItemClickedListener mListener ;
     private MoodViewHolder.onItemLongClickedListener mLongListener ;
 
-    public MoodAdapter(List<MoodItem> data){
+    public MoodAdapter(List<AudioInfo> data){
         mDataSet = data ;
 
     }
