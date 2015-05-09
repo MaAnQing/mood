@@ -2,6 +2,7 @@ package com.hm.madroid.mood.ui;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -46,7 +47,7 @@ public class MainActivity extends BaseActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        //initDB();
+        initDB();
     }
 
 
@@ -88,19 +89,25 @@ public class MainActivity extends BaseActivity
         switch (position){
 //            case 0:
 //                break;
-//            case 1:
-//                break;
+            case 1:
+                startActivity(new Intent(this,LoginActivity.class));
+                break;
             case 2:
                 fragment = new RecordListFragment() ;
+                loadFragment(R.id.container, fragment);
                 break;
             case 3:
                 fragment = new SettingFragment() ;
+                loadFragment(R.id.container, fragment);
+                break;
+            case 5:
+                startActivity(new Intent(this,FeedbackActivity.class));
                 break;
             default:
                 fragment = new RecordListFragment() ;
+                loadFragment(R.id.container, fragment);
                 break;
         }
-        loadFragment(R.id.container, fragment);
 
     }
 
