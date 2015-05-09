@@ -15,5 +15,9 @@
     <dimen name="btn_bg_radius">20dp</dimen>
     <dimen name="mili_margin">22.5dp</dimen>
 
+    <dimen name="title_bar_height">55dp</dimen>
+
+
+
 
 </resources>

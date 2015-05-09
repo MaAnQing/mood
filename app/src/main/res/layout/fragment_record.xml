@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RecordFragment"
-    android:weightSum="7">
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar"/>
 
     <ListView
         android:layout_width="match_parent"
