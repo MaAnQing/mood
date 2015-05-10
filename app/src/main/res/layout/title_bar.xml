@@ -6,32 +6,18 @@
     android:background="@color/bg_color_blue"
     android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/title_bar_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:src="@drawable/ic_drawer"/>
-
     <TextView
-        android:id="@+id/title_bar_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingRight="10dp"
-        android:layout_gravity="center_vertical"
-        android:textColor="@color/title_text_color"
-        android:textSize="18sp"
+        android:id="@+id/home_back"
+        style="@style/BackPreButton"
+        android:clickable="true"
         android:text="首页"/>
 
     <TextView
-        android:layout_gravity="center"
-        android:id="@+id/title_bar_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:text="title"/>
-
+        android:id="@+id/home"
+        style="@style/HomeButton"
+        android:clickable="true"
+        android:visibility="gone"
+        android:text="首页"/>
 
 
 </LinearLayout>

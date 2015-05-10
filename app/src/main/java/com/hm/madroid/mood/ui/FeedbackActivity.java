@@ -1,9 +1,6 @@
 package com.hm.madroid.mood.ui;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 
 import com.hm.madroid.mood.R;
 

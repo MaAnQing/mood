@@ -26,6 +26,7 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener{
     private EditText mContent;
     private EditText mEmail;
     private View mSend;
+    private TextView homeBack ;
 
 
     @Override
@@ -37,6 +38,11 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_feedback, container, false);
+
+        homeBack = (TextView)v.findViewById(R.id.home_back);
+        homeBack.setText(getString(R.string.title_feedback));
+        homeBack.setOnClickListener(this);
+
         mContent = (EditText) v.findViewById(R.id.feedback_content);
         mEmail = (EditText) v.findViewById(R.id.feedback_email);
         mSend = v.findViewById(R.id.feedback);
@@ -57,8 +63,7 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener{
         return v;
     }
 
-    @Override
-    public void onClick(View v) {
+    private void sendMsg(){
         String content = mContent.getText().toString();
         String email = mEmail.getText().toString();
 
@@ -73,6 +78,22 @@ public class FeedbackFragment extends Fragment implements View.OnClickListener{
         } else {
             Toast.makeText(getActivity(), R.string.feedback_empty, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.home_back:
+                getActivity().finish();
+                break;
+            case R.id.feedback:
+                sendMsg();
+                break;
+            default:
+                break;
+        }
+
     }
 
     public static boolean isContentValid(String content) {

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.hm.madroid.mood.R;
 
 
-public class RecordFragment extends Fragment {
+public class RecordFragment extends Fragment{
 
 
     @Override
@@ -24,8 +24,6 @@ public class RecordFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_record, container, false);
 
-
         return view;
     }
-
 }
