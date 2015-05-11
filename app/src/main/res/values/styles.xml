@@ -5,4 +5,24 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="BackHomeBase">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/title_bar_height</item>
+        <item name="android:paddingLeft">@dimen/common_header_padding</item>
+        <item name="android:drawablePadding">@dimen/common_header_padding</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:textSize">@dimen/common_header_back_title_font</item>
+    </style>
+
+    <style name="BackPreButton" parent="BackHomeBase">
+        <item name="android:drawableLeft">@drawable/btn_prev_selector</item>
+        <item name="android:textColor">#e6ffffff</item>
+    </style>
+
+    <style name="HomeButton" parent="BackHomeBase">
+        <item name="android:drawableLeft">@drawable/btn_home_selector</item>
+        <item name="android:textColor">#e6ffffff</item>
+    </style>
+
 </resources>

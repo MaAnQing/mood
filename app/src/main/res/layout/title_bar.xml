@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_bar_height"
+    android:id="@+id/title_bar"
+    android:background="@color/bg_color_blue"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/home_back"
+        style="@style/BackPreButton"
+        android:clickable="true"
+        android:text="首页"/>
+
+    <TextView
+        android:id="@+id/home"
+        style="@style/HomeButton"
+        android:clickable="true"
+        android:visibility="gone"
+        android:text="首页"/>
+
+
+</LinearLayout>

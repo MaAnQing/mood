@@ -1,30 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">mood</string>
-
-
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_example">Example action</string>
-
     <string name="action_settings">Settings</string>
     <string name="title_activity_base">BaseActivity</string>
-
     <string name="hello_world">Hello world!</string>
+
+    <string name="feedback_send">发送</string>
+    <string name="feedback_hint">感谢你的反馈, 我们会聆听你的每一条建议和意见</string>
+    <string name="feedback_address">你的联系方式（电邮、手机号或QQ）</string>
+    <string name="feedback_empty">请填写反馈内容！</string>
+    <string name="feedback_invalid">联系方式无效请重填！</string>
 
     <string name="email">邮箱</string>
     <string name="password">密码</string>
     <string name="title_login">登录</string>
     <string name="action_sign_in">登录或注册</string>
-
     <string name="category_hone_title">通话录音</string>
     <string name="category_phone_summary">通话录音设置</string>
     <string name="category_record_title">普通录音</string>
     <string name="category_record_summary">普通录音设置</string>
     <string name="category_other_title">其他</string>
     <string name="category_other_summary">其他设置</string>
-
     <string name="record_channel_title">双通道</string>
     <string name="record_channel_summary">勾选后，将以双通道录音</string>
     <string name="record_phone_title">通话时录音</string>
@@ -32,20 +32,26 @@
 
     <string name="format_file_name">"MM月dd日 hh：mm"</string>
 
+    <string name="title_record">语音识别</string>
+    <string name="title_audio_list">语音列表</string>
+    <string name="title_setting">设置</string>
+    <string name="title_about">关于</string>
+    <string name="title_feedback">反馈</string>
+
+    <string name="toast_exit">再按一次退出</string>
 
 
     <string-array name="menu_list">
-        <item>首页</item>
-        <item>登录</item>
-        <item>录音列表</item>
+        <item>语音识别</item>
+        <item>语音列表</item>
         <item>设置</item>
         <item>关于</item>
         <item>反馈</item>
     </string-array>
 
-
     <string name="record_sample_rate_title">采样率</string>
     <string name="record_sample_rate_summary">设置录音时的音频采样率</string>
+
     <string-array name="record_sample_rate">
         <item>8000 HZ</item>
         <item>11025 HZ</item>
@@ -64,9 +70,9 @@
         <item>5</item>
     </integer-array>
 
-
     <string name="audio_format_title">音频格式</string>
     <string name="audio_format_summary">设置录音时的音频采样率</string>
+
     <string-array name="audio_format">
         <item>Standard Quality(3GPP)</item>
         <item>Standard Quality(AMR)</item>
@@ -83,9 +89,9 @@
         <item>4</item>
     </integer-array>
 
-
     <string name="auto_delete_title">自动清理</string>
     <string name="auto_delete_summary">设置自动清理本地录音文件的时间</string>
+
     <string-array name="auto_delete">
         <item>不自动清理</item>
         <item>一天以前</item>
@@ -102,9 +108,10 @@
         <item>4</item>
     </integer-array>
 
-
     <string name="title_activity_record_list">RecordListActivity</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_feedback">FeedbackActivity</string>
+
 </resources>
