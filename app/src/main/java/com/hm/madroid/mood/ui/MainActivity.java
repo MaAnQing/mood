@@ -74,7 +74,7 @@ public class MainActivity extends BaseActivity
             AudioInfo info = new AudioInfo() ;
             info.address = "address" + i ;
             info.date = "DATE" + i ;
-            info.duration = "duration" + i ;
+            info.duration = 30 ;
             info.mood = i ;
             info.name = "name" + i ;
             infos.add(info);

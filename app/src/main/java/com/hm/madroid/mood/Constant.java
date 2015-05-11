@@ -5,7 +5,7 @@ package com.hm.madroid.mood;
  */
 public class Constant {
 
-    public static final int MOOD_SAD = 0 ;
+    public static final int MOOD_SAD = 4 ;
     public static final int MOOD_HAPPY = 1 ;
     public static final int MOOD_ANGRY = 2 ;
     public static final int MOOD_NEUTRAL = 3 ;

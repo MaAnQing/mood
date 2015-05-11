@@ -30,6 +30,7 @@
             android:title="@string/record_sample_rate_title"
             android:summary="@string/record_sample_rate_summary"
             android:dialogTitle="@string/record_sample_rate_title"
+            android:defaultValue="@string/record_sample_default"
             android:entries="@array/record_sample_rate"
             android:entryValues="@array/record_sample_rate_value"/>
 
@@ -39,7 +40,8 @@
             android:summary="@string/audio_format_summary"
             android:dialogTitle="@string/audio_format_title"
             android:entries="@array/audio_format"
-            android:entryValues="@array/audio_format_value"/>
+            android:entryValues="@array/audio_format_value"
+            android:defaultValue="@string/audio_format_default"/>
 
     </PreferenceCategory>
 
@@ -55,6 +57,7 @@
             android:summary="@string/auto_delete_summary"
             android:dialogTitle="@string/auto_delete_title"
             android:entries="@array/auto_delete"
+            android:defaultValue="@string/audio_format_default"
             android:entryValues="@array/auto_delete_value"/>
 
     </PreferenceCategory>

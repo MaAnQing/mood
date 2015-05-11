@@ -18,6 +18,7 @@ public class MoodApp extends Application {
         super.onCreate();
         mContext = this ;
         ActiveAndroid.initialize(this);
+        Keeper.init(mContext) ;
     }
 
     @Override

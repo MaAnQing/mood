@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.google.android.gms.common.SignInButton;
 
+import com.hm.madroid.mood.Keeper;
 import com.hm.madroid.mood.R;
 
 /**
@@ -44,6 +45,11 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (Keeper.isLogin()){
+            startActivity(new Intent(this, MainActivity.class));
+            finish();
+        }
         setContentView(R.layout.activity_login);
 
         initView();
@@ -58,6 +64,8 @@ public class LoginActivity extends BaseActivity {
         switch (view.getId()){
             case R.id.email_sign_in_button :
                 startActivity(new Intent(this, MainActivity.class));
+                Keeper.keepLogin(true);
+                finish();
                 break;
             default:
                 break;

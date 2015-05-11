@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.hm.madroid.mood.Constant;
 import com.hm.madroid.mood.R;
+import com.hm.madroid.mood.Utils;
 import com.hm.madroid.mood.database.AudioInfo;
 
 
@@ -44,7 +45,7 @@ public class MoodViewHolder extends RecyclerView.ViewHolder implements View.OnCl
     public void setValue(AudioInfo value){
         name.setText(value.name);
         date.setText(value.date);
-        duration.setText(value.duration);
+        duration.setText(Utils.getDuration(value.duration));
         address.setText(value.address);
         picId.setImageResource(mood2Pic(value.mood));
     }

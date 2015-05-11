@@ -14,7 +14,7 @@ public class AudioInfo extends Model {
     public String name;
 
     @Column(name = "Duration")
-    public String duration;
+    public long duration;
 
     @Column(name = "Date")
     public String date;
@@ -38,7 +38,7 @@ public class AudioInfo extends Model {
         super();
     }
 
-    public AudioInfo(String name,String duration,String date,int mood,int id,String address,long time,String path){
+    public AudioInfo(String name,long duration,String date,int mood,int id,String address,long time,String path){
         this.name = name ;
         this.duration = duration ;
         this.date = date ;
