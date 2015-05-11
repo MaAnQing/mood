@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <ListView
+        android:id="@+id/List_record"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_weight="6">
@@ -16,6 +17,7 @@
         android:id="@+id/btn_record"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:text="长按录音"/>
 
 </LinearLayout>

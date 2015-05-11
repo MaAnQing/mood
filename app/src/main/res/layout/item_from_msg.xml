@@ -8,7 +8,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/msg_time"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_gravity="center_horizontal"
+        android:background="@color/bg_time_gray"
+        android:visibility="gone"
+        android:text="time"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,11 +23,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/rebort"/>
+            android:paddingEnd="@dimen/msg_margin"
+            android:src="@drawable/user_icon"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_msg_from"
+            android:padding="@dimen/msg_margin"
             android:text="happy"/>
 
         </LinearLayout>
