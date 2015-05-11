@@ -17,6 +17,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.widget.TextView;
 
 import com.hm.madroid.mood.R;
+import com.hm.madroid.mood.Utils;
 import com.hm.madroid.mood.database.AudioInfo;
 import com.hm.madroid.mood.database.AudioInfoManager;
 import com.hm.madroid.mood.event.UpdateTitle;
@@ -53,8 +54,16 @@ public class MainActivity extends BaseActivity
                 (DrawerLayout) findViewById(R.id.drawer_layout));
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout) ;
 
+        init();
+
+    }
+
+    private void init(){
+        if (!Utils.haveSDCard()){
+            showLongToast(R.string.toast_no_sdcard);
+        }
         initTitleBar();
-        initDB();
+        //initDB();
     }
 
 
@@ -138,8 +147,14 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.home :
+                mDrawerLayout.openDrawer(R.id.navigation_drawer);
+                break;
+            default:
+                break;
+        }
 
-        mDrawerLayout.openDrawer(R.id.navigation_drawer);
     }
 
     public void onSectionAttached(int number) {

@@ -1,6 +1,7 @@
 package com.hm.madroid.mood;
 
 import android.media.MediaRecorder;
+import android.util.Log;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -12,7 +13,8 @@ import java.util.Date;
  */
 public class AudioManager {
 
-    private AudioManager mManager ;
+    private static final String TAG = "AudioManager" ;
+    private static AudioManager mManager ;
     private MediaRecorder mMediaRecorder ;
     private AudioManagerStateListener mListener ;
     private String mDir ;
@@ -23,7 +25,7 @@ public class AudioManager {
         mDir = path ;
     }
 
-    public AudioManager getInstace(String path){
+    public static AudioManager getInstance(String path){
 
         if (mManager == null){
             synchronized (AudioManager.class){
@@ -53,11 +55,13 @@ public class AudioManager {
             File dir = new File(mDir) ;
             if (!dir.exists()){
                 dir.mkdir() ;
+                Log.i(TAG, "is mkdir file : " + dir.mkdir()) ;
             }
 
             String fileName = generateFilename() ;
             File file = new File(dir,fileName) ;
             mCurrentFilePth = file.getAbsolutePath() ;
+            Log.i(TAG,"file path" + mCurrentFilePth) ;
 
             mMediaRecorder = new MediaRecorder() ;
             mMediaRecorder.setOutputFile(mCurrentFilePth);
@@ -80,6 +84,14 @@ public class AudioManager {
         }
 
 
+    }
+
+    public void startRecord(){
+        prepareAudio();
+    }
+
+    public void stopRecord(){
+        release();
     }
 
     private String generateFilename(){

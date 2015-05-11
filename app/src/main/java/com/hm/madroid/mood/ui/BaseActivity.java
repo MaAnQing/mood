@@ -27,8 +27,16 @@ public class BaseActivity extends ActionBarActivity {
         Toast.makeText(mContext,s,Toast.LENGTH_SHORT).show();
     }
 
+    public void showToast(int id){
+        Toast.makeText(mContext,getString(id),Toast.LENGTH_SHORT).show();
+    }
+
     public void showLongToast(String s){
         Toast.makeText(mContext,s,Toast.LENGTH_LONG).show();
+    }
+
+    public void showLongToast(int id){
+        Toast.makeText(mContext,getString(id),Toast.LENGTH_LONG).show();
     }
 
     public void loadFragment(int container,Fragment fragment){

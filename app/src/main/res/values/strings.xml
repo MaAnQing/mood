@@ -30,6 +30,8 @@
     <string name="record_phone_title">通话时录音</string>
     <string name="record_phone_summary">勾选后，通话时软件将会在后台录音</string>
 
+    <string name="toast_no_sdcard">没有内存卡, 插入内存卡后才能录音</string>
+
     <string name="format_file_name">"MM月dd日 hh：mm"</string>
 
     <string name="title_record">语音识别</string>
