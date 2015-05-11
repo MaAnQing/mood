@@ -23,6 +23,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.hm.madroid.mood.R;
+import com.hm.madroid.mood.event.UpdateTitle;
+
+import de.greenrobot.event.EventBus;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -130,16 +133,10 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // set up the drawer's list view with items and click listener
 
-//        ActionBar actionBar = getActionBar();
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-//        actionBar.setHomeButtonEnabled(true);
-
-
-
         // If the user hasn't 'learned' about the drawer, open it to introduce them to the drawer,
         // per the navigation drawer design guidelines.
         if (!mUserLearnedDrawer && !mFromSavedInstanceState) {
-            mDrawerLayout.openDrawer(mFragmentContainerView);
+            //mDrawerLayout.openDrawer(mFragmentContainerView);
         }
     }
 
@@ -154,6 +151,7 @@ public class NavigationDrawerFragment extends Fragment {
         if (mCallbacks != null) {
             mCallbacks.onNavigationDrawerItemSelected(position);
         }
+        EventBus.getDefault().post(new UpdateTitle(position));
     }
 
     @Override

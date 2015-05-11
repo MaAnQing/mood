@@ -2,6 +2,7 @@ package com.hm.madroid.mood.ui;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.hm.madroid.mood.R;
 
@@ -17,7 +18,8 @@ public class SettingActivity extends BaseActivity implements View.OnClickListene
     }
 
     private void initTitleBar(){
-        View backHome = findViewById(R.id.home_back) ;
+        TextView backHome = (TextView)findViewById(R.id.home_back) ;
+        backHome.setText(getString(R.string.title_setting));
         backHome.setOnClickListener(this);
     }
 

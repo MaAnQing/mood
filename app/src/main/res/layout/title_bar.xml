@@ -9,15 +9,13 @@
     <TextView
         android:id="@+id/home_back"
         style="@style/BackPreButton"
-        android:clickable="true"
-        android:text="首页"/>
+        android:clickable="true"/>
 
     <TextView
         android:id="@+id/home"
         style="@style/HomeButton"
         android:clickable="true"
-        android:visibility="gone"
-        android:text="首页"/>
+        android:visibility="gone"/>
 
 
 </LinearLayout>

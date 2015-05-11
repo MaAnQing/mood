@@ -19,9 +19,12 @@ import android.widget.TextView;
 import com.hm.madroid.mood.R;
 import com.hm.madroid.mood.database.AudioInfo;
 import com.hm.madroid.mood.database.AudioInfoManager;
+import com.hm.madroid.mood.event.UpdateTitle;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.greenrobot.event.EventBus;
 
 
 public class MainActivity extends BaseActivity
@@ -51,7 +54,7 @@ public class MainActivity extends BaseActivity
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout) ;
 
         initTitleBar();
-       // initDB();
+        initDB();
     }
 
 
@@ -70,21 +73,21 @@ public class MainActivity extends BaseActivity
         manager.addInfos(infos) ;
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        EventBus.getDefault().register(this);
-//    }
-//
-//    @Override
-//    public void onStop() {
-//        EventBus.getDefault().unregister(this);
-//        super.onStop();
-//    }
-//
-//    public void onEvent(){
-//
-//    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+
+    @Override
+    public void onStop() {
+        EventBus.getDefault().unregister(this);
+        super.onStop();
+    }
+
+    public void onEvent(UpdateTitle title){
+        updateTitle(title.getPosition());
+    }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
@@ -102,15 +105,26 @@ public class MainActivity extends BaseActivity
             case 2:
                 startActivity(new Intent(this,SettingActivity.class));
                 break;
+            case 3:
+                break;
             case 4:
                 startActivity(new Intent(this,FeedbackActivity.class));
                 break;
             default:
-                fragment = new AudioListFragment() ;
-                loadFragment(R.id.container, fragment);
+
                 break;
         }
 
+        //updateTitle(position);
+
+    }
+
+    private void updateTitle(int position){
+        if (position == 0){
+            mTitle.setText(R.string.title_record);
+        }else if (position == 1){
+            mTitle.setText(R.string.title_audio_list);
+        }
     }
 
     private void initTitleBar(){
