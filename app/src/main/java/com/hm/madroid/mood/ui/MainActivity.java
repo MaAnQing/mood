@@ -115,6 +115,8 @@ public class MainActivity extends BaseActivity
                 startActivity(new Intent(this,SettingActivity.class));
                 break;
             case 3:
+                fragment = new AboutFragment() ;
+                loadFragment(R.id.container,fragment);
                 break;
             case 4:
                 startActivity(new Intent(this,FeedbackActivity.class));
@@ -133,6 +135,8 @@ public class MainActivity extends BaseActivity
             mTitle.setText(R.string.title_record);
         }else if (position == 1){
             mTitle.setText(R.string.title_audio_list);
+        }else if (position == 3){
+            mTitle.setText(R.string.title_about);
         }
     }
 

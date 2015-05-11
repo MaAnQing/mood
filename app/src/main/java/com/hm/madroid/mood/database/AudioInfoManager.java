@@ -82,16 +82,16 @@ public class AudioInfoManager {
     //edit
 
     //query
-    public AudioInfo getInfo (int id){
-        return new Select().from(AudioInfo.class).where("UserId = ?",id).executeSingle() ;
+    public AudioInfo getInfo (int _id){
+        return new Select().from(AudioInfo.class).where("_id = ?", _id).executeSingle() ;
     }
 
-    public List<AudioInfo> getInfos (int id){
-        return new Select().from(AudioInfo.class).where("UserId = ?",id).execute() ;
+    public List<AudioInfo> getInfos (int userId){
+        return new Select().from(AudioInfo.class).where("UserId = ?",userId).execute() ;
     }
 
     public List<AudioInfo> getAllInfos(){
-        List<AudioInfo> infos= new Select().all().from(AudioInfo.class).execute() ;
+        List<AudioInfo> infos= new Select().all().from(AudioInfo.class).orderBy("TimeStamp DESC").execute() ;
 
         if (infos == null){
             Log.i(TAG,"getAllInfos : is null" ) ;

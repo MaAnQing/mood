@@ -32,6 +32,9 @@
 
     <string name="toast_no_sdcard">没有内存卡, 插入内存卡后才能录音</string>
 
+    <string name="about_title">基于Android手机客户端语音情感识别系统设计与实现</string>
+    <string name="about_content">语音情感识别, 即是通过说话者的语音状态判断出说话者的情感状态. 目前仅能识别Angry, Happy, Sad, Neutral四种情感.</string>
+
     <string name="format_file_name">"MM月dd日 hh：mm"</string>
 
     <string name="title_record">语音识别</string>

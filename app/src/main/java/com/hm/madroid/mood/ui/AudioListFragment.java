@@ -2,6 +2,8 @@ package com.hm.madroid.mood.ui;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -18,6 +20,7 @@ import com.hm.madroid.mood.database.AudioInfo;
 import com.hm.madroid.mood.database.AudioInfoManager;
 import com.hm.madroid.mood.viewholder.MoodViewHolder;
 
+import java.io.File;
 import java.util.List;
 
 import de.greenrobot.event.EventBus;
@@ -90,8 +93,14 @@ public class AudioListFragment extends Fragment implements MoodViewHolder.onItem
     @Override
     public void onClick(View view, int position) {
         Log.i("madroid", "position: " + position) ;
-        mDataSet.remove(position) ;
-        mAdapter.notifyItemRemoved(position);
+//        mDataSet.remove(position) ;
+//        mAdapter.notifyItemRemoved(position);
+//        Uri uri = Uri.fromFile(new File(mDataSet.get(position).path ));
+//        Intent intent = new Intent("android.intent.action.VIEW");
+//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//        intent.setDataAndType(uri,"audio/x-wav");
+//        getActivity().startActivity(intent);
+
     }
 
     @Override
