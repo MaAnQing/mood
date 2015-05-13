@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/dialog_margin"
     android:gravity="center"
-    android:background="#ccc"
+    android:background="@drawable/dialog_loading_bg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -22,7 +22,7 @@
             android:id="@+id/record_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/dialog_mic"/>
+            android:src="@drawable/dialog_recorder"/>
 
         <ImageView
             android:id="@+id/record_level"
