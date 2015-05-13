@@ -45,6 +45,10 @@
 
     <string name="toast_exit">再按一次退出</string>
 
+    <string name="str_recoder_normal">按住说话</string>
+    <string name="str_recoder_recoding">松开  结束</string>
+    <string name="str_recoder_want_cancel">松开手指，取消发送</string>
+
 
     <string-array name="menu_list">
         <item>语音识别</item>

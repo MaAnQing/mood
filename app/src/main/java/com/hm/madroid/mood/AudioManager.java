@@ -29,7 +29,6 @@ public class AudioManager {
     private AudioInfo info ;
     long start = 0 ;
     long end = 0 ;
-    private TimeThread timeThread ;
 
     private int mAudioSource ;
     private int mOutputFormat ;
@@ -53,6 +52,10 @@ public class AudioManager {
             }
         }
         return mManager ;
+    }
+
+    public String getCurrentFilePath() {
+        return mCurrentFilePth;
     }
 
     public interface AudioManagerStateListener{
@@ -141,7 +144,7 @@ public class AudioManager {
         return 1 ;
     }
 
-    public void cancle(){
+    public void cancel(){
         release();
 
         if (mCurrentFilePth != null){
@@ -185,18 +188,5 @@ public class AudioManager {
         player.start();
     }
 
-    class TimeThread extends Thread{
-        @Override
-        public void run() {
-            super.run();
-            try {
-                sleep(100);
-                //mDuration += 0.1 ;
-                //update dialog
-            }catch (InterruptedException e){
-                e.printStackTrace();
-            }
 
-        }
-    }
 }

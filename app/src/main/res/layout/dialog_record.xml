@@ -1,44 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="@dimen/dialog_margin"
+    android:padding="20dp"
     android:gravity="center"
     android:background="@drawable/dialog_loading_bg"
-    android:orientation="vertical">
-
+    android:orientation="vertical" >
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
+        android:orientation="horizontal"
+        >
         <ImageView
-            android:id="@+id/record_cancel"
+            android:id="@+id/image_a"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
-
+            android:src="@drawable/dialog_recorder"
+            android:visibility="visible"
+            />
         <ImageView
-            android:id="@+id/record_icon"
+            android:id="@+id/image_b"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/dialog_recorder"/>
-
-        <ImageView
-            android:id="@+id/record_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/level_1"/>
-
+            android:src="@drawable/level_1"
+            />
 
     </LinearLayout>
-
     <TextView
-        android:id="@+id/record_label"
+        android:id="@+id/tv_dialogcontent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="dialog"/>
+        android:layout_marginTop="5dp"
+        android:text="手指上滑，取消发送"
 
+        />
 
 </LinearLayout>
