@@ -22,6 +22,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
     private Button recordBtn ;
     private AudioManager mAudioManager ;
     private String mFilePath ;
+    private DialogManager mDialogManager ;
 
 
     @Override
@@ -29,7 +30,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
         super.onCreate(savedInstanceState);
 
         mAudioManager = AudioManager.getInstance() ;
-
+        mDialogManager = new DialogManager(getActivity()) ;
     }
 
     @Override
@@ -70,8 +71,11 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
                     //record.setImageResource(R.drawable.ic_recording);
                     //Log.i(TAG, "MyOnTouchListener");
                     mAudioManager.startRecord();
+                    mDialogManager.showRecording();
+                    new TimeThread().start();
                     break;
                 case MotionEvent.ACTION_UP:
+                    mDialogManager.dimiss();
                     mAudioManager.stopRecord();
 //                    record.setImageResource(R.drawable.ic_record);
 //                    upload();
@@ -81,5 +85,19 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
 
         }
 
+    }
+
+
+    class TimeThread extends Thread{
+        @Override
+        public void run() {
+            super.run();
+            try {
+                sleep(100);
+                mDialogManager.updateLevel(mAudioManager.getAudioLevel(7));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 }
