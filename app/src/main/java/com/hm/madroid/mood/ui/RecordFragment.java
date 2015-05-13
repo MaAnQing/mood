@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.hm.madroid.mood.AudioManager;
+import com.hm.madroid.mood.Constant;
 import com.hm.madroid.mood.R;
 import com.hm.madroid.mood.Utils;
 
@@ -27,8 +28,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mFilePath = Utils.getSDCardPath() + "/Audio_mood/" ;
-        mAudioManager = AudioManager.getInstance(mFilePath) ;
+        mAudioManager = AudioManager.getInstance() ;
 
     }
 

@@ -14,7 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.hm.madroid.mood.AudioManager;
+import com.hm.madroid.mood.Constant;
 import com.hm.madroid.mood.R;
+import com.hm.madroid.mood.Utils;
 import com.hm.madroid.mood.adapter.MoodAdapter;
 import com.hm.madroid.mood.database.AudioInfo;
 import com.hm.madroid.mood.database.AudioInfoManager;
@@ -33,6 +36,7 @@ public class AudioListFragment extends Fragment implements MoodViewHolder.onItem
     private MoodAdapter mAdapter ;
     private List<AudioInfo> mDataSet ;
     private Context mContext ;
+    private AudioInfoManager manager ;
 
 
     public AudioListFragment() {
@@ -78,7 +82,7 @@ public class AudioListFragment extends Fragment implements MoodViewHolder.onItem
     }
 
     private List<AudioInfo> getDataSet(){
-        AudioInfoManager manager = AudioInfoManager.getInstance() ;
+        manager = AudioInfoManager.getInstance() ;
         mDataSet = manager.getAllInfos();
         Log.i(TAG,"dataset :" + mDataSet) ;
         return mDataSet ;
@@ -100,6 +104,9 @@ public class AudioListFragment extends Fragment implements MoodViewHolder.onItem
 //        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //        intent.setDataAndType(uri,"audio/x-wav");
 //        getActivity().startActivity(intent);
+        AudioManager audioManager = AudioManager.getInstance() ;
+        AudioInfo info = manager.getInfo(position) ;
+        audioManager.playAudio(info.path);
 
     }
 

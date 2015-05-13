@@ -12,4 +12,7 @@ public class Constant {
 
     public static final int ID_ADMIN = -1 ;
 
+    public static final String PATH = "/Audio_mood/" ;
+
+
 }

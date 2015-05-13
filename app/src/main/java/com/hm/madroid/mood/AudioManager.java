@@ -1,5 +1,6 @@
 package com.hm.madroid.mood;
 
+import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.util.Log;
 
@@ -7,6 +8,7 @@ import com.hm.madroid.mood.database.AudioInfo;
 import com.hm.madroid.mood.database.AudioInfoManager;
 
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -36,16 +38,17 @@ public class AudioManager {
 
 
 
-    private AudioManager(String path){
-        mDir = path ;
+    private AudioManager(){
+
+        mDir = Utils.getSDCardPath() + Constant.PATH ;
     }
 
-    public static AudioManager getInstance(String path){
+    public static AudioManager getInstance(){
 
         if (mManager == null){
             synchronized (AudioManager.class){
                 if (mManager == null){
-                    mManager = new AudioManager(path) ;
+                    mManager = new AudioManager() ;
                 }
             }
         }
@@ -164,6 +167,22 @@ public class AudioManager {
         info.address = Utils.getAddress() ;
         info.mood = Utils.getMood() ;
         AudioInfoManager.getInstance().addInfo(info) ;
+    }
+
+    public void playAudio(String path){
+        MediaPlayer player = new MediaPlayer();
+
+        try {
+            player.setDataSource(path);
+
+            player.prepare();
+        }catch (IOException e){
+            Log.e(TAG,"not find audio file") ;
+            e.printStackTrace();
+        }
+
+
+        player.start();
     }
 
     class TimeThread extends Thread{
