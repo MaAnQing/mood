@@ -50,8 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:paddingStart="@dimen/msg_margin"
-                android:paddingEnd="@dimen/msg_margin"
+                android:padding="@dimen/msg_margin"
                 android:src="@drawable/adj"/>
 
         </LinearLayout>
