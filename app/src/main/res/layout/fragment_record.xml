@@ -5,13 +5,18 @@
     tools:context=".RecordFragment"
     android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/List_record"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_weight="6">
+
+        <ListView
+            android:id="@+id/List_record"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@null"
+            android:dividerHeight="10dp"
+            android:clickable="false">
 
         </ListView>
+
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -33,11 +38,13 @@
             android:minHeight="0dp"
             >
         </com.hm.madroid.mood.view.AudioRecorderButton>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#ccc"
 
             />
+
     </FrameLayout>
 </LinearLayout>

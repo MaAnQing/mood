@@ -29,7 +29,8 @@
         android:id="@+id/tv_dialogcontent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:background="@color/bg_time_gray"
         android:text="手指上滑，取消发送"
 
         />

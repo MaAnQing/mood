@@ -3,23 +3,29 @@ package com.hm.madroid.mood.ui;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.hm.madroid.mood.AudioManager;
 import com.hm.madroid.mood.DialogManager;
 import com.hm.madroid.mood.R;
+import com.hm.madroid.mood.adapter.RecordMsgAdapter;
+import com.hm.madroid.mood.model.ChatMessage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class RecordFragment extends Fragment implements View.OnClickListener{
 
-    private Button recordBtn ;
     private AudioManager mAudioManager ;
-    private String mFilePath ;
     private DialogManager mDialogManager ;
+
+    private ListView mListView ;
+    private RecordMsgAdapter mAdapter ;
+    private List<ChatMessage> mData ;
 
 
     @Override
@@ -40,7 +46,22 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
     }
 
     private void initView(View view){
-        recordBtn = (Button)view.findViewById(R.id.btn_record) ;
+        mListView = (ListView)view.findViewById(R.id.List_record) ;
+
+        mAdapter = new RecordMsgAdapter(getActivity(),getData()) ;
+        mListView.setAdapter(mAdapter);
+    }
+
+    private List<ChatMessage> getData(){
+        mData = new ArrayList<>() ;
+        for (int i = 1; i< 16;i++){
+            ChatMessage message = new ChatMessage() ;
+            message.setMessageType(i%2);
+            message.setMsg("message:" + i);
+            message.setDuration(i * 10 + "''");
+            mData.add(message) ;
+        }
+        return mData ;
     }
 
     @Override
@@ -57,18 +78,4 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
         mAudioManager.startRecord();
     }
 
-
-
-    class TimeThread extends Thread{
-        @Override
-        public void run() {
-            super.run();
-            try {
-                sleep(100);
-                mDialogManager.updateLevel(mAudioManager.getAudioLevel(7));
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-    }
 }

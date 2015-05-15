@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="5dp"
     android:orientation="vertical">
 
     <TextView
@@ -21,25 +22,48 @@
 
 
         <TextView
+            android:id="@+id/msg_duration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:padding="@dimen/msg_margin"
             android:text="4''"/>
 
-        <TextView
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_gravity="center_vertical"
             android:background="@drawable/bg_msg_to"
-            android:padding="@dimen/msg_margin"
-            android:text="file"/>
+            >
+            <TextView
+                android:id="@+id/msg_length"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                />
+
+            <ImageView
+                android:id="@+id/msg_audio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:paddingStart="@dimen/msg_margin"
+                android:paddingEnd="@dimen/msg_margin"
+                android:src="@drawable/adj"/>
+
+        </LinearLayout>
+
 
         <ImageView
+            android:id="@+id/msg_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:paddingStart="@dimen/msg_margin"
+            android:paddingEnd="5dp"
             android:src="@drawable/user_icon"/>
 
         </LinearLayout>
