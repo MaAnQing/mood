@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.hm.madroid.mood.AudioManager;
 import com.hm.madroid.mood.DialogManager;
 import com.hm.madroid.mood.R;
+import com.hm.madroid.mood.Utils;
 import com.hm.madroid.mood.adapter.RecordMsgAdapter;
 import com.hm.madroid.mood.model.ChatMessage;
 
@@ -57,7 +58,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
         for (int i = 1; i< 16;i++){
             ChatMessage message = new ChatMessage() ;
             message.setMessageType(i%2);
-            message.setMsg("message:" + i);
+            message.setMsg(Utils.getMoodStr());
             message.setDuration(i * 10 + "''");
             mData.add(message) ;
         }

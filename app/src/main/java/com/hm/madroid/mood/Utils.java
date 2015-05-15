@@ -50,5 +50,28 @@ public class Utils {
         return random.nextInt(4)%(4-1+1) + 1 ;
     }
 
+    public static String getMoodStr(){
+        Random random = new Random() ;
+        int mood = random.nextInt(4)%(4-1+1) + 1 ;
+        String moodStr = "" ;
+        switch (mood){
+            case Constant.MOOD_ANGRY:
+                moodStr = "angry" ;
+                break;
+            case Constant.MOOD_SAD:
+                moodStr = "sad" ;
+                break;
+            case Constant.MOOD_HAPPY:
+                moodStr = "happy" ;
+                break;
+            case Constant.MOOD_NEUTRAL:
+                moodStr = "neutral" ;
+                break;
+            default:
+                moodStr = "neutral" ;
+        }
+        return moodStr ;
+    }
+
 }
 
