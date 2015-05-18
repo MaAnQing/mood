@@ -15,14 +15,14 @@
     <dimen name="btn_bg_radius">20dp</dimen>
     <dimen name="mood_margin">22.5dp</dimen>
     <dimen name="msg_margin">12dp</dimen>
+    <dimen name="user_info_margin">15dp</dimen>
+    <dimen name="user_info_margin_top">10dp</dimen>
+    <dimen name="user_info_margin_end">15dp</dimen>
     <dimen name="dialog_margin">20dp</dimen>
 
     <dimen name="title_bar_height">55dp</dimen>
     <dimen name="common_header_back_title_font">16sp</dimen>
     <dimen name="common_header_title_font">18sp</dimen>
     <dimen name="common_header_padding">10dp</dimen>
-
-
-
 
 </resources>

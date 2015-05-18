@@ -15,6 +15,25 @@
     <string name="feedback_empty">请填写反馈内容！</string>
     <string name="feedback_invalid">联系方式无效请重填！</string>
 
+    <string name="user_name">登录名：</string>
+    <string name="user_name_hint">请输入用户名</string>
+    <string name="user_password">密  码：</string>
+    <string name="user_password_hint">建议设置6位以上密码</string>
+    <string name="user_password_verify">确认密码：</string>
+    <string name="user_password_verify_hint">请再次输入密码</string>
+    <string name="user_phone">手机号码：</string>
+    <string name="user_phone_hint">请填写您的手机号</string>
+    <string name="user_email">电子邮箱：</string>
+    <string name="user_email_hint">请填写您的邮箱</string>
+    <string name="user_gender">性  别：</string>
+    <string name="user_gender_hint">请填写您的性别</string>
+    <string name="user_age">年  龄：</string>
+    <string name="user_age_hint">请填写您的年龄</string>
+    <string name="user_address">籍贯:</string>
+    <string name="user_address_hint">请填写您的籍贯</string>
+    <string name="user_register">注册</string>
+    <string name="user_cancel">取消</string>
+
     <string name="email">邮箱</string>
     <string name="password">密码</string>
     <string name="title_login">登录</string>
