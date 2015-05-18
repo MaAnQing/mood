@@ -1,7 +1,10 @@
 package com.hm.madroid.mood.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.nfc.Tag;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hm.madroid.mood.R;
 import com.hm.madroid.mood.model.ChatMessage;
@@ -106,6 +110,21 @@ public class RecordMsgAdapter extends BaseAdapter {
                 message = (TextView)v.findViewById(R.id.msg_text) ;
             }else if (type == ChatMessage.MESSAGE_TO){
                 audio = (ImageView)v.findViewById(R.id.msg_audio) ;
+                audio.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(mContext,"view",Toast.LENGTH_SHORT).show();
+                        audio.setBackgroundResource(R.drawable.play_anim);
+
+                        AnimationDrawable anim = (AnimationDrawable)audio.getBackground() ;
+                        if (anim.isRunning()) {
+                            anim.stop();
+                        } else {
+                            anim.start();
+                        }
+
+                    }
+                });
                 length = (TextView)v.findViewById(R.id.msg_length) ;
                 duration = (TextView)v.findViewById(R.id.msg_duration) ;
             }
