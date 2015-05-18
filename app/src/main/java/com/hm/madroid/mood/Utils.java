@@ -73,5 +73,32 @@ public class Utils {
         return moodStr ;
     }
 
+    public static String getMoodStr(int mood){
+        String moodStr = "" ;
+        switch (mood){
+            case Constant.MOOD_ANGRY:
+                moodStr = "angry" ;
+                break;
+            case Constant.MOOD_SAD:
+                moodStr = "sad" ;
+                break;
+            case Constant.MOOD_HAPPY:
+                moodStr = "happy" ;
+                break;
+            case Constant.MOOD_NEUTRAL:
+                moodStr = "neutral" ;
+                break;
+            default:
+                moodStr = "neutral" ;
+        }
+        return moodStr ;
+    }
+
+    public static String formatTime(long date){
+        String time = "" ;
+        SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss") ;
+        time = format.format(date) ;
+        return time ;
+    }
 }
 

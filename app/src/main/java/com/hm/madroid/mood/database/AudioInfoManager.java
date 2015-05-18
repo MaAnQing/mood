@@ -90,8 +90,24 @@ public class AudioInfoManager {
         return new Select().from(AudioInfo.class).where("UserId = ?",userId).execute() ;
     }
 
-    public List<AudioInfo> getAllInfos(){
+    public List<AudioInfo> getAllInfosDesc(){
         List<AudioInfo> infos= new Select().all().from(AudioInfo.class).orderBy("TimeStamp DESC").execute() ;
+
+        if (infos == null){
+            Log.i(TAG,"getAllInfos : is null" ) ;
+        }else {
+            Log.i(TAG,"getAllInfos :"  + infos.toString()) ;
+
+        }
+
+        for (AudioInfo fileInfos : infos){
+            Log.i(TAG,"fileinfo :" + fileInfos.toString()) ;
+        }
+        return infos;
+    }
+
+    public List<AudioInfo> getAllInfos(){
+        List<AudioInfo> infos= new Select().all().from(AudioInfo.class).execute() ;
 
         if (infos == null){
             Log.i(TAG,"getAllInfos : is null" ) ;

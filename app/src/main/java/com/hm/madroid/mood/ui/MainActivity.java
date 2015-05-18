@@ -174,14 +174,19 @@ public class MainActivity extends BaseActivity
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            if (!isExit) {
-                isExit = true;
-                showToast(getString(R.string.toast_exit));
-                mHandler.sendEmptyMessageDelayed(0, 2000);
-            } else {
-                finish();
-                System.exit(0);
+
+        if (mDrawerLayout.isDrawerOpen(R.id.navigation_drawer)) {
+            mDrawerLayout.closeDrawer(R.id.navigation_drawer);
+        }else {
+            if (keyCode == KeyEvent.KEYCODE_BACK) {
+                if (!isExit) {
+                    isExit = true;
+                    showToast(getString(R.string.toast_exit));
+                    mHandler.sendEmptyMessageDelayed(0, 2000);
+                } else {
+                    finish();
+                    System.exit(0);
+                }
             }
         }
         return false;

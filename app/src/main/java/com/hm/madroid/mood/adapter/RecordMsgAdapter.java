@@ -113,7 +113,6 @@ public class RecordMsgAdapter extends BaseAdapter {
                 audio.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Toast.makeText(mContext,"view",Toast.LENGTH_SHORT).show();
                         audio.setBackgroundResource(R.drawable.play_anim);
 
                         AnimationDrawable anim = (AnimationDrawable)audio.getBackground() ;
@@ -132,6 +131,13 @@ public class RecordMsgAdapter extends BaseAdapter {
         }
 
         public void bindData(ChatMessage msg){
+            if (msg.getTime() != null && !msg.getTime().equals("")){
+                time.setVisibility(View.VISIBLE);
+                time.setText(msg.getTime());
+            } else {
+                time.setVisibility(View.GONE);
+            }
+
             if (msg.getMessageType() == ChatMessage.MESSAGE_FROM){
                 message.setText(msg.getMsg());
             }else if (msg.getMessageType() == ChatMessage.MESSAGE_TO){

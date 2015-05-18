@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import de.greenrobot.event.EventBus;
+
 /**
  * Created by madroid on 15-5-9.
  */
@@ -170,6 +172,8 @@ public class AudioManager {
         info.address = Utils.getAddress() ;
         info.mood = Utils.getMood() ;
         AudioInfoManager.getInstance().addInfo(info) ;
+        EventBus.getDefault().post(	info);
+
     }
 
     public void playAudio(String path){

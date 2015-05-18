@@ -29,7 +29,7 @@
     <string name="user_gender_hint">请填写您的性别</string>
     <string name="user_age">年  龄：</string>
     <string name="user_age_hint">请填写您的年龄</string>
-    <string name="user_address">籍贯:</string>
+    <string name="user_address">籍  贯:</string>
     <string name="user_address_hint">请填写您的籍贯</string>
     <string name="user_register">注册</string>
     <string name="user_cancel">取消</string>

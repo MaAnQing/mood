@@ -1,9 +1,5 @@
 package com.hm.madroid.mood.view;
 
-import com.hm.madroid.mood.AudioManager;
-import com.hm.madroid.mood.DialogManager;
-import com.hm.madroid.mood.R ;
-
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -12,6 +8,14 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+
+import com.hm.madroid.mood.AudioManager;
+import com.hm.madroid.mood.DialogManager;
+import com.hm.madroid.mood.R;
+import com.hm.madroid.mood.database.AudioInfo;
+
+import de.greenrobot.event.EventBus;
+
 public class AudioRecorderButton extends Button implements AudioManager.AudioManagerStateListener {
 	private static final int STATE_NORMAL = 1;
 	private static final int STATE_RECORDING = 2;
@@ -41,10 +45,6 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 	public AudioRecorderButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		mDialogManager = new DialogManager(context);
-		
-		//String dir = Environment.getExternalStorageDirectory()+"/weixinvideoasd";
-		String dir = "/storage/sdcard0/weixin";
-		Log.i("----zhoujg77",dir );
 		mAudioManager = AudioManager.getInstance();
 		mAudioManager.setStateListener(this);
 		
@@ -62,7 +62,7 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 	}
 	
 	/**
-	 * @author zhoujg77
+	 * @author madroid
 	 *	录音完成后的回调
 	 */
 	public interface AudioFinshRecoderListener{
@@ -170,20 +170,18 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 			if (!mReady) {
 				reset();
 				return super.onTouchEvent(event);
-			}
-			if (!isRecoding||mTime < 0.6f){
+			} if (!isRecoding||mTime < 0.6f){
 				mDialogManager.tooShort();
 				mAudioManager.cancel();
 				mHandler.sendEmptyMessageDelayed(MSG_DIALOG_DIMISS,0);//延迟显示对话框
-			}
-			else if (mCurState == STATE_RECORDING) {//正常录制结束
+			} else if (mCurState == STATE_RECORDING) {//正常录制结束
 				//释放录音资源 通知Activity
 				mDialogManager.dismissDialog();
 				mAudioManager.stopRecord();
 				if (mListener != null) {
 					mListener.onFinish(mTime, mAudioManager.getCurrentFilePath());
 				}
-			}else if (mCurState == STATE_WANT_TO_CANCEL){
+			} else if (mCurState == STATE_WANT_TO_CANCEL) {
 				//取消
 				mDialogManager.dismissDialog();
 				mAudioManager.cancel();

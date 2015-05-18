@@ -14,6 +14,16 @@ public class ChatMessage {
     private String msg ;
     private String duration ;
     private int length ;
+    private String time ;
+
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public void setDuration(String duration) {
         this.duration = duration;

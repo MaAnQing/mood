@@ -11,7 +11,10 @@
         android:id="@+id/msg_time"
         android:layout_gravity="center_horizontal"
         android:background="@color/bg_time_gray"
+        android:padding="3dp"
         android:visibility="gone"
+        android:textSize="12sp"
+        android:textColor="@color/title_text_color"
         android:text="time"/>
 
     <LinearLayout

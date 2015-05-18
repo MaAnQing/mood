@@ -2,8 +2,6 @@ package com.hm.madroid.mood.ui;
 
 import android.app.Fragment;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -15,15 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.hm.madroid.mood.AudioManager;
-import com.hm.madroid.mood.Constant;
 import com.hm.madroid.mood.R;
-import com.hm.madroid.mood.Utils;
 import com.hm.madroid.mood.adapter.MoodAdapter;
 import com.hm.madroid.mood.database.AudioInfo;
 import com.hm.madroid.mood.database.AudioInfoManager;
 import com.hm.madroid.mood.viewholder.MoodViewHolder;
 
-import java.io.File;
 import java.util.List;
 
 import de.greenrobot.event.EventBus;
@@ -83,7 +78,7 @@ public class AudioListFragment extends Fragment implements MoodViewHolder.onItem
 
     private List<AudioInfo> getDataSet(){
         manager = AudioInfoManager.getInstance() ;
-        mDataSet = manager.getAllInfos();
+        mDataSet = manager.getAllInfosDesc();
         Log.i(TAG,"dataset :" + mDataSet) ;
         return mDataSet ;
     }
