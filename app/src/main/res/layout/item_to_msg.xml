@@ -35,11 +35,12 @@
 
 
         <LinearLayout
+            android:id="@+id/msg_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/bg_msg"
+            android:background="@drawable/msg_view_selector"
             >
             <TextView
                 android:id="@+id/msg_length"

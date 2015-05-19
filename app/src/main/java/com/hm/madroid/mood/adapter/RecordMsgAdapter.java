@@ -100,17 +100,19 @@ public class RecordMsgAdapter extends BaseAdapter {
         private ImageView audio ;
         private TextView length ;
         private TextView duration ;
+        private View  msgView ;
 
 
 
         public void initView(View v, int type){
             time = (TextView)v.findViewById(R.id.msg_time) ;
             icon = (ImageView)v.findViewById(R.id.msg_icon) ;
+            msgView = v.findViewById(R.id.msg_view) ;
             if (type == ChatMessage.MESSAGE_FROM){
                 message = (TextView)v.findViewById(R.id.msg_text) ;
             }else if (type == ChatMessage.MESSAGE_TO){
                 audio = (ImageView)v.findViewById(R.id.msg_audio) ;
-                audio.setOnClickListener(new View.OnClickListener() {
+                msgView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         audio.setBackgroundResource(R.drawable.play_anim);
@@ -118,6 +120,9 @@ public class RecordMsgAdapter extends BaseAdapter {
                         AnimationDrawable anim = (AnimationDrawable)audio.getBackground() ;
                         if (anim.isRunning()) {
                             anim.stop();
+                            audio.clearAnimation();
+                            audio.setImageResource(R.drawable.audio);
+
                         } else {
                             audio.setImageResource(R.drawable.anim_1);
                             anim.start();

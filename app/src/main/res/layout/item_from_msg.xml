@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/bg_msg_from"
+            android:background="@drawable/msg_from_view_selector"
             android:padding="@dimen/msg_margin"
             android:text="happy"/>
 
