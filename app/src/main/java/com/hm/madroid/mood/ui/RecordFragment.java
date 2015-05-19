@@ -80,12 +80,14 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
         mData.add(audio) ;
         mData.add(mood) ;
         mAdapter.notifyDataSetChanged();
+        mListView.setSelection(mAdapter.getCount() - 1);
     }
 
     private void initView(View view){
         mListView = (ListView)view.findViewById(R.id.List_record) ;
         mAdapter = new RecordMsgAdapter(getActivity(),getData()) ;
         mListView.setAdapter(mAdapter);
+        mListView.setSelection(mAdapter.getCount() - 1);
     }
 
     private List<ChatMessage> getData(){

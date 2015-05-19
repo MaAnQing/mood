@@ -21,7 +21,6 @@ import com.hm.madroid.mood.viewholder.MoodViewHolder;
 
 import java.util.List;
 
-import de.greenrobot.event.EventBus;
 
 public class AudioListFragment extends Fragment implements MoodViewHolder.onItemClickedListener,MoodViewHolder.onItemLongClickedListener{
 
