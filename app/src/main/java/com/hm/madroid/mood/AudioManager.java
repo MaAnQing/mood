@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.concurrent.TransferQueue;
 
 import de.greenrobot.event.EventBus;
 
@@ -32,7 +33,6 @@ public class AudioManager {
     long start = 0 ;
     long end = 0 ;
 
-    private int mAudioSource ;
     private int mOutputFormat ;
     private int mAudioEncoder ;
     private int mAudioChannel ;
@@ -96,7 +96,10 @@ public class AudioManager {
             //设置编码为arm
             mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
-            mMediaRecorder.setAudioChannels(1);
+            //设置单声道，立体声
+            mMediaRecorder.setAudioChannels(getAudioChannel());
+            //设置采样率
+            mMediaRecorder.setAudioSamplingRate(Keeper.readRecordSampleRate());
 
             mMediaRecorder.prepare();
             mMediaRecorder.start();
@@ -111,8 +114,15 @@ public class AudioManager {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
 
+//    private int getOutputFormat() {
+//
+//    }
 
+    private int getAudioChannel(){
+        //1 (单通道) or 2 双通道
+        return Keeper.readRecordChannel() ? 2 : 1 ;
     }
 
     public void startRecord(){

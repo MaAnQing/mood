@@ -64,18 +64,6 @@ public class AudioListFragment extends Fragment implements MoodViewHolder.onItem
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        EventBus.getDefault().register(this);
-    }
-
-    @Override
-    public void onStop() {
-        EventBus.getDefault().unregister(this);
-        super.onStop();
-    }
-
     private List<AudioInfo> getDataSet(){
         manager = AudioInfoManager.getInstance() ;
         mDataSet = manager.getAllInfosDesc();
@@ -83,22 +71,10 @@ public class AudioListFragment extends Fragment implements MoodViewHolder.onItem
         return mDataSet ;
     }
 
-    //录音结束后，刷新列表
-    public void onEvent(AudioInfo info){
-        //TODO:
-    }
-
     //recycler item click
     @Override
     public void onClick(View view, int position) {
         Log.i("madroid", "position: " + position) ;
-//        mDataSet.remove(position) ;
-//        mAdapter.notifyItemRemoved(position);
-//        Uri uri = Uri.fromFile(new File(mDataSet.get(position).path ));
-//        Intent intent = new Intent("android.intent.action.VIEW");
-//        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//        intent.setDataAndType(uri,"audio/x-wav");
-//        getActivity().startActivity(intent);
         AudioManager audioManager = AudioManager.getInstance() ;
         AudioInfo info = manager.getInfo(position) ;
         audioManager.playAudio(info.path);
