@@ -96,6 +96,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
                 ChatMessage audio = new ChatMessage() ;
                 audio.setMessageType(ChatMessage.MESSAGE_TO);
                 audio.setTime(Utils.formatTime(list.timeStamp));
+                audio.setDuration(list.duration /1000 + "'");
                 ChatMessage mood = new ChatMessage() ;
                 mood.setMessageType(ChatMessage.MESSAGE_FROM);
                 mood.setMsg(Utils.getMoodStr(list.mood));

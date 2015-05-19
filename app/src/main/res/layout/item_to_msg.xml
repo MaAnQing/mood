@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/bg_msg_to"
+            android:background="@drawable/bg_msg"
             >
             <TextView
                 android:id="@+id/msg_length"
@@ -53,8 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:padding="@dimen/msg_margin"
-                android:src="@drawable/adj"/>
+                android:src="@drawable/audio"/>
 
         </LinearLayout>
 

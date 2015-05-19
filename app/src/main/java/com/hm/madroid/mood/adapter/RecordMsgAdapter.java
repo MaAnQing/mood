@@ -119,6 +119,7 @@ public class RecordMsgAdapter extends BaseAdapter {
                         if (anim.isRunning()) {
                             anim.stop();
                         } else {
+                            audio.setImageResource(R.drawable.anim_1);
                             anim.start();
                         }
 
