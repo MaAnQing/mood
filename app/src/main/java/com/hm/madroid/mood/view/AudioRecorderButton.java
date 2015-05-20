@@ -20,7 +20,9 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 	private static final int STATE_NORMAL = 1;
 	private static final int STATE_RECORDING = 2;
 	private static final int STATE_WANT_TO_CANCEL = 3;
-	
+
+	private static final float SHORT_TIME = 1.0f;
+
 	private static final int DISTANCE_Y_CANCEL = 50;
 	
 	private int mCurState = STATE_NORMAL;
@@ -30,6 +32,8 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 	private DialogManager mDialogManager ;
 	
 	private AudioManager mAudioManager;
+
+	private static final String TAG = "AudioRecorderButton" ;
 	
 	
 	private float mTime;
@@ -47,18 +51,7 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 		mDialogManager = new DialogManager(context);
 		mAudioManager = AudioManager.getInstance();
 		mAudioManager.setStateListener(this);
-		
-		
-		setOnLongClickListener(new OnLongClickListener() {
-			
-			@Override
-			public boolean onLongClick(View v) {
-				Log.i("----zhoujg77","longClick" );
-				mReady = true;
-				mAudioManager.prepareAudio();
-				return false;
-			}
-		});
+
 	}
 	
 	/**
@@ -105,19 +98,19 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case MSG_AUDIO_PREPARED:
-				Log.i("----zhoujg77","MSG_AUDIO_PREPARED" );
+				Log.i(TAG,"MSG_AUDIO_PREPARED" );
 				//显示對話框在开始录音以后
 				mDialogManager.showRecordingDialog();
 				isRecoding = true;
 				new Thread(mGetVoiceLevelRunnable).start();
 				break;
 			case MSG_VOICE_CHANGED:
-				Log.i("----zhoujg77","MSG_VOICE_CHANGED" );
+				Log.i(TAG,"MSG_VOICE_CHANGED" );
 				mDialogManager.updateLevel(mAudioManager.getAudioLevel(7));
 				
 				break;
 			case MSG_DIALOG_DIMISS:
-				Log.i("----zhoujg77","MSG_DIALOG_DIMISS" );
+				Log.i(TAG,"MSG_DIALOG_DIMISS" );
 				mDialogManager.dismissDialog();
 				break;
 
@@ -146,14 +139,15 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 
 		switch (action) {
 		case MotionEvent.ACTION_DOWN:
-			
-			Log.i("----zhoujg77","ACTION_DOWN" );
+			mReady = true;
+			mAudioManager.prepareAudio();
+			Log.i(TAG,"ACTION_DOWN" );
 			changeState(STATE_RECORDING);
 			
 			
 			break;
 		case MotionEvent.ACTION_MOVE:
-			Log.i("----zhoujg77","ACTION_MOVE" );
+			Log.i(TAG,"ACTION_MOVE" );
 			if (!isRecoding) {
 				//如果想要取消录音，根据X，y的坐标判断
 				if (wantToCancel(x,y)) {
@@ -166,17 +160,18 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 			
 			break;
 		case MotionEvent.ACTION_UP:
-			Log.i("----zhoujg77","ACTION_UP" );
+			Log.i(TAG,"ACTION_UP" );
 			if (!mReady) {
 				reset();
 				return super.onTouchEvent(event);
-			} if (!isRecoding||mTime < 0.6f){
+			} if (!isRecoding && mTime <= SHORT_TIME){
 				mDialogManager.tooShort();
 				mAudioManager.cancel();
-				mHandler.sendEmptyMessageDelayed(MSG_DIALOG_DIMISS,0);//延迟显示对话框
+				mHandler.sendEmptyMessageDelayed(MSG_DIALOG_DIMISS,1000);//延迟显示对话框
 			} else if (mCurState == STATE_RECORDING) {//正常录制结束
 				//释放录音资源 通知Activity
-				mDialogManager.dismissDialog();
+			isRecoding = false ;
+			mDialogManager.dismissDialog();
 				mAudioManager.stopRecord();
 				if (mListener != null) {
 					mListener.onFinish(mTime, mAudioManager.getCurrentFilePath());
@@ -223,7 +218,6 @@ public class AudioRecorderButton extends Button implements AudioManager.AudioMan
 			case STATE_NORMAL:
 				setBackgroundResource(R.drawable.btn_recoder_normal);
 				setText(R.string.str_recoder_normal);
-				mDialogManager.showRecordingDialog();
 				break;
 			case STATE_RECORDING:
 				setBackgroundResource(R.drawable.btn_recoding);

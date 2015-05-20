@@ -34,6 +34,11 @@
     <string name="user_register">注册</string>
     <string name="user_cancel">取消</string>
 
+    <string name="dialog_msg_cancel">手指上滑，取消发送</string>
+    <string name="dialog_msg_want_cancel">松开手指，取消发送</string>
+    <string name="dialog_msg_short">录音时间过短</string>
+
+
     <string name="email">邮箱</string>
     <string name="password">密码</string>
     <string name="title_login">登录</string>
