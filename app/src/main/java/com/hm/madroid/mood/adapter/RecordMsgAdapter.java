@@ -114,6 +114,7 @@ public class RecordMsgAdapter extends BaseAdapter {
             icon = (ImageView)v.findViewById(R.id.msg_icon) ;
             msgView = v.findViewById(R.id.msg_view) ;
             if (msg.getMessageType() == ChatMessage.MESSAGE_FROM){
+
                 message = (TextView)v.findViewById(R.id.msg_text) ;
             }else if (msg.getMessageType() == ChatMessage.MESSAGE_TO){
                 audio = (ImageView)v.findViewById(R.id.msg_audio) ;
