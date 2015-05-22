@@ -14,7 +14,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hm.madroid.mood.AudioManager;
+import com.hm.madroid.mood.Constant;
 import com.hm.madroid.mood.R;
+import com.hm.madroid.mood.Utils;
 import com.hm.madroid.mood.model.ChatMessage;
 
 import org.w3c.dom.Text;
@@ -74,10 +77,10 @@ public class RecordMsgAdapter extends BaseAdapter {
             viewHolder = new ViewHolder() ;
             if (getItemViewType(position) == ChatMessage.MESSAGE_FROM){
                 convertView = mLayoutInflater.inflate(R.layout.item_from_msg,null) ;
-                viewHolder.initView(convertView,ChatMessage.MESSAGE_FROM);
+                viewHolder.initView(convertView,mDataSet.get(position));
             }else if (getItemViewType(position) == ChatMessage.MESSAGE_TO){
                 convertView = mLayoutInflater.inflate(R.layout.item_to_msg,null) ;
-                viewHolder.initView(convertView,ChatMessage.MESSAGE_TO);
+                viewHolder.initView(convertView,mDataSet.get(position));
             }
             Log.i(TAG,"type:" + getItemViewType(position) ) ;
             convertView.setTag(viewHolder);
@@ -101,35 +104,20 @@ public class RecordMsgAdapter extends BaseAdapter {
         private TextView length ;
         private TextView duration ;
         private View  msgView ;
+        private ChatMessage  mChatMessage ;
 
 
 
-        public void initView(View v, int type){
+        public void initView(View v, ChatMessage msg){
+            mChatMessage = msg ;
             time = (TextView)v.findViewById(R.id.msg_time) ;
             icon = (ImageView)v.findViewById(R.id.msg_icon) ;
             msgView = v.findViewById(R.id.msg_view) ;
-            if (type == ChatMessage.MESSAGE_FROM){
+            if (msg.getMessageType() == ChatMessage.MESSAGE_FROM){
                 message = (TextView)v.findViewById(R.id.msg_text) ;
-            }else if (type == ChatMessage.MESSAGE_TO){
+            }else if (msg.getMessageType() == ChatMessage.MESSAGE_TO){
                 audio = (ImageView)v.findViewById(R.id.msg_audio) ;
-                msgView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        audio.setBackgroundResource(R.drawable.play_anim);
-
-                        AnimationDrawable anim = (AnimationDrawable)audio.getBackground() ;
-                        if (anim.isRunning()) {
-                            anim.stop();
-                            audio.clearAnimation();
-                            audio.setImageResource(R.drawable.audio);
-
-                        } else {
-                            audio.setImageResource(R.drawable.anim_1);
-                            anim.start();
-                        }
-
-                    }
-                });
+                msgView.setOnClickListener(new AudioClickedListener());
                 length = (TextView)v.findViewById(R.id.msg_length) ;
                 duration = (TextView)v.findViewById(R.id.msg_duration) ;
             }
@@ -148,6 +136,29 @@ public class RecordMsgAdapter extends BaseAdapter {
                 message.setText(msg.getMsg());
             }else if (msg.getMessageType() == ChatMessage.MESSAGE_TO){
                 duration.setText(msg.getDuration());
+            }
+        }
+
+        class AudioClickedListener implements View.OnClickListener{
+
+            @Override
+            public void onClick(View v) {
+                audio.setBackgroundResource(R.drawable.play_anim);
+
+                AnimationDrawable anim = (AnimationDrawable)audio.getBackground() ;
+                if (anim.isRunning()) {
+                    anim.stop();
+                    audio.clearAnimation();
+                    audio.setImageResource(R.drawable.audio);
+                    //AudioManager.getInstance().playAudio(mChatMessage.getPath());
+                    AudioManager.getInstance().stopAudio();
+                    Log.i(TAG,"play audio") ;
+                } else {
+                    AudioManager.getInstance().playAudio(mChatMessage.getPath());
+                    //AudioManager.getInstance().playAudio(Utils.getSDCardPath() + Constant.FILE_PATH + "audio.mp3");
+                    audio.setImageResource(R.drawable.anim_1);
+                    anim.start();
+                }
             }
         }
 

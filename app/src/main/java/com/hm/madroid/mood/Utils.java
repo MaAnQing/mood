@@ -1,6 +1,8 @@
 package com.hm.madroid.mood;
 
+import android.nfc.Tag;
 import android.os.Environment;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -10,6 +12,8 @@ import java.util.Random;
  * Created by madroid on 15-5-11.
  */
 public class Utils {
+
+    private static String TAG = "Utils" ;
 
     public static boolean haveSDCard(){
 
@@ -99,6 +103,14 @@ public class Utils {
         SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss") ;
         time = format.format(date) ;
         return time ;
+    }
+
+    public static String transFormatStr(String file, String suffix) {
+        Log.i(TAG, "file path : " +file) ;
+        //以 . 分割字符串
+        String path[] = file.split("\\.") ;
+        Log.i(TAG, "new file path : " + path[0] + suffix) ;
+        return path[0] + suffix ;
     }
 }
 

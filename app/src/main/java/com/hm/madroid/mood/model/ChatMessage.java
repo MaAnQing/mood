@@ -15,7 +15,15 @@ public class ChatMessage {
     private String duration ;
     private int length ;
     private String time ;
+    private String path ;
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
 
     public String getTime() {
         return time;

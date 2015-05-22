@@ -32,7 +32,7 @@ public class Keeper {
     }
 
     public static int readRecordSampleRate(){
-        return Integer.valueOf(sp.getString("record_sample_rate", "5")) ;
+        return Integer.valueOf(sp.getString("record_sample_rate", "441000")) ;
     }
 
     public static int readAutoDelete(){

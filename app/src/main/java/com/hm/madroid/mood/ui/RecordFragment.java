@@ -75,6 +75,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
         audio.setMessageType(ChatMessage.MESSAGE_TO);
         audio.setTime(Utils.formatTime(info.timeStamp));
         audio.setDuration(info.duration /1000 + "'");
+        audio.setPath(info.path);
         ChatMessage mood = new ChatMessage() ;
         mood.setMessageType(ChatMessage.MESSAGE_FROM);
         mood.setMsg(Utils.getMoodStr(info.mood));
@@ -100,6 +101,7 @@ public class RecordFragment extends Fragment implements View.OnClickListener{
                 audio.setMessageType(ChatMessage.MESSAGE_TO);
                 audio.setTime(Utils.formatTime(list.timeStamp));
                 audio.setDuration(list.duration /1000 + "'");
+                audio.setPath(list.path);
                 ChatMessage mood = new ChatMessage() ;
                 mood.setMessageType(ChatMessage.MESSAGE_FROM);
                 mood.setMsg(Utils.getMoodStr(list.mood));

@@ -96,12 +96,12 @@
     </string-array>
 
     <string-array name="record_sample_rate_value">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
+        <item>8000</item>
+        <item>11025</item>
+        <item>16000</item>
+        <item>22050</item>
+        <item>32000</item>
+        <item>441000</item>
     </string-array>
 
     <string name="audio_format_title">音频格式</string>
