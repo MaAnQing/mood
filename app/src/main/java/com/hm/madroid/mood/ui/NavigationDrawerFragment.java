@@ -12,11 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.hm.madroid.mood.R;
+import com.hm.madroid.mood.adapter.MenuAdapter;
 import com.hm.madroid.mood.event.UpdateTitle;
+import com.hm.madroid.mood.model.MenuModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import de.greenrobot.event.EventBus;
 
@@ -50,6 +54,8 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
 
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerListView;
+    private MenuAdapter mAdapter ;
+    private List<MenuModel> mData ;
     private View mFragmentContainerView;
 
     private int mCurrentSelectedPosition = 0;
@@ -100,13 +106,30 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
                 selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-                getActivity(),
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                getResources().getStringArray(R.array.menu_list)));
+        mAdapter = new MenuAdapter(getActivity(),getData()) ;
+//        mDrawerListView.setAdapter(new ArrayAdapter<String>(
+//                getActivity(),
+//                android.R.layout.simple_list_item_activated_1,
+//                android.R.id.text1,
+//                getResources().getStringArray(R.array.menu_list)));
+        mDrawerListView.setAdapter(mAdapter);
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         view.findViewById(R.id.user_icon).setOnClickListener(this);
+    }
+
+    private List<MenuModel> getData() {
+        mData = new ArrayList<>() ;
+        String[] titles = getResources().getStringArray(R.array.menu_list) ;
+        int[] ids = new int[] {R.drawable.ic_setting_record, R.drawable.ic_setting_list , R.drawable.ic_settings ,
+                                R.drawable.ic_setting_about , R.drawable.ic_setting_feedback } ;
+        for (int i = 0 ; i < titles.length ; i++ ) {
+            MenuModel model = new MenuModel() ;
+            model.setTitle(titles[i]);
+            model.setResId(ids[i]);
+            mData.add(model) ;
+        }
+
+        return mData ;
     }
 
     public boolean isDrawerOpen() {

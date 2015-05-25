@@ -23,4 +23,8 @@
     <dimen name="common_header_title_font">18sp</dimen>
     <dimen name="common_header_padding">10dp</dimen>
 
+    <dimen name="list_menu_start_margin">40dp</dimen>
+
+
+
 </resources>

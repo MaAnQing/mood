@@ -57,24 +57,8 @@ public class MainActivity extends BaseActivity
             showLongToast(R.string.toast_no_sdcard);
         }
         initTitleBar();
-        //initDB();
     }
 
-
-    private  void initDB(){
-        AudioInfoManager manager = AudioInfoManager.getInstance() ;
-        List<AudioInfo> infos = new ArrayList<>() ;
-        for (int i =0 ; i<=3 ;i++){
-            AudioInfo info = new AudioInfo() ;
-            info.address = "address" + i ;
-            info.date = "DATE" + i ;
-            info.duration = 30 ;
-            info.mood = i ;
-            info.name = "name" + i ;
-            infos.add(info);
-        }
-        manager.addInfos(infos) ;
-    }
 
     @Override
     public void onStart() {
@@ -153,11 +137,6 @@ public class MainActivity extends BaseActivity
                 break;
         }
 
-    }
-
-    public void onSectionAttached(int number) {
-        String[] s = getResources().getStringArray(R.array.menu_list) ;
-        //mTitle = s[number-1] ;
     }
 
 
