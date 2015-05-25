@@ -217,6 +217,18 @@ public class AudioManager {
         mPlayer.start();
     }
 
+    public int getDuration(){
+        return mPlayer.getDuration() ;
+    }
+
+    public boolean isPlaying(){
+        return mPlayer != null && mPlayer.isPlaying() ;
+    }
+
+    public void setOnCompletionListener(MediaPlayer.OnCompletionListener listener){
+        mPlayer.setOnCompletionListener(listener);
+    }
+
     public void stopAudio() {
         if (mPlayer.isPlaying()) {
             mPlayer.stop();

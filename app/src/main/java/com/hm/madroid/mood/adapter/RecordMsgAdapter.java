@@ -2,9 +2,7 @@ package com.hm.madroid.mood.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
-import android.nfc.Tag;
-import android.support.annotation.Nullable;
+import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,15 +10,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hm.madroid.mood.AudioManager;
-import com.hm.madroid.mood.Constant;
 import com.hm.madroid.mood.R;
-import com.hm.madroid.mood.Utils;
 import com.hm.madroid.mood.model.ChatMessage;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -84,7 +77,7 @@ public class RecordMsgAdapter extends BaseAdapter {
             }
             Log.i(TAG,"type:" + getItemViewType(position) ) ;
             convertView.setTag(viewHolder);
-            Log.i(TAG,"tag:" + viewHolder) ;
+            Log.i(TAG, "tag:" + viewHolder) ;
         }else {
 
             viewHolder = (ViewHolder)convertView.getTag() ;
@@ -147,18 +140,22 @@ public class RecordMsgAdapter extends BaseAdapter {
                 audio.setBackgroundResource(R.drawable.play_anim);
 
                 AnimationDrawable anim = (AnimationDrawable)audio.getBackground() ;
-                if (anim.isRunning()) {
-                    anim.stop();
-                    audio.clearAnimation();
-                    audio.setImageResource(R.drawable.audio);
-                    //AudioManager.getInstance().playAudio(mChatMessage.getPath());
-                    AudioManager.getInstance().stopAudio();
-                    Log.i(TAG,"play audio") ;
-                } else {
+                if (!AudioManager.getInstance().isPlaying()) {
                     AudioManager.getInstance().playAudio(mChatMessage.getPath());
+                    AudioManager.getInstance().setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            //anim.stop();
+                            audio.clearAnimation();
+                            audio.setImageResource(R.drawable.audio);
+                            Log.i(TAG, "play audio is completion ");
+
+                        }
+                    });
                     //AudioManager.getInstance().playAudio(Utils.getSDCardPath() + Constant.FILE_PATH + "audio.mp3");
                     audio.setImageResource(R.drawable.anim_1);
                     anim.start();
+                    Log.i(TAG, "start play audio") ;
                 }
             }
         }
