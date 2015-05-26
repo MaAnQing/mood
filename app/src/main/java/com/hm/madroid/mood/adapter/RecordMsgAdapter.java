@@ -65,8 +65,8 @@ public class RecordMsgAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewHolder viewHolder = null ;
-        if (viewHolder == null){
+        ViewHolder viewHolder ;
+        if (convertView == null){
             viewHolder = new ViewHolder() ;
             if (getItemViewType(position) == ChatMessage.MESSAGE_FROM){
                 convertView = mLayoutInflater.inflate(R.layout.item_from_msg,null) ;

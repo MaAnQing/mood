@@ -1,6 +1,5 @@
 package com.hm.madroid.mood;
 
-import android.nfc.Tag;
 import android.os.Environment;
 import android.util.Log;
 

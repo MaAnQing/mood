@@ -47,8 +47,8 @@ public class MenuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = null;
-        if (viewHolder == null) {
+        ViewHolder viewHolder ;
+        if (convertView == null) {
             Log.i(TAG,"init viewholder") ;
             viewHolder = new ViewHolder() ;
             convertView = mLayoutInflater.inflate(R.layout.drawer_list_item,null) ;
