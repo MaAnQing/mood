@@ -1,8 +1,12 @@
 package com.hm.madroid.mood;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -116,6 +120,18 @@ public class Utils {
         String path[] = file.split("\\.") ;
         Log.i(TAG, "new file path : " + path[0] + suffix) ;
         return path[0] + suffix ;
+    }
+
+    public static final String getVersionInfo(Context context) {
+        try {
+            PackageManager pm = context.getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+            Toast.makeText(context, "版本号：" + pi.versionName, Toast.LENGTH_LONG).show();
+            return "版本号：" + pi.versionName ;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "版本号：v1.0" ;
+        }
     }
 }
 
