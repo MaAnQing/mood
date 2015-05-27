@@ -27,6 +27,10 @@ public class MoodAdapter extends RecyclerView.Adapter<MoodViewHolder> {
 
     }
 
+    public void setData(List<AudioInfo> data) {
+        mDataSet = data ;
+    }
+
     @Override
     public MoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View item = LayoutInflater.from(parent.getContext()).inflate(R.layout.mood_show_item,parent,false) ;

@@ -151,8 +151,7 @@ public class AudioManager {
     }
 
     private String generateFilename(){
-        SimpleDateFormat format = new SimpleDateFormat("MM月dd日 hh:mm") ;
-        String filename = format.format(new Date()) ;
+        String filename = Utils.formatDate(System.currentTimeMillis(), "MM月dd日 hh:mm:ss") ;
         info.name = filename ;
         String suffix = ".amr" ;
         return  filename + suffix;

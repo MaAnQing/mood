@@ -1,6 +1,7 @@
 package com.hm.madroid.mood;
 
 import android.os.Environment;
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
@@ -37,6 +38,11 @@ public class Utils {
         }else {
             return "00:" + (int) s % 60 ;
         }
+    }
+
+    public static final String formatDate(Long timestamp , String format) {
+        SimpleDateFormat simpleDateFormat  = new SimpleDateFormat(format) ;
+        return simpleDateFormat.format(timestamp) ;
     }
 
     public static String getDate(Long timestamp){

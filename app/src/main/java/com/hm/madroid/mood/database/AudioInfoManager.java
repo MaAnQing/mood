@@ -86,6 +86,10 @@ public class AudioInfoManager {
         return new Select().from(AudioInfo.class).where("_id = ?", _id).executeSingle() ;
     }
 
+    public AudioInfo getInfo (String name){
+        return new Select().from(AudioInfo.class).where("Name = ?", name).executeSingle() ;
+    }
+
     public List<AudioInfo> getInfos (int userId){
         return new Select().from(AudioInfo.class).where("UserId = ?",userId).execute() ;
     }

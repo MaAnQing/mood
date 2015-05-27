@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hm.madroid.mood.AudioManager;
@@ -60,24 +61,37 @@ public class AudioListFragment extends Fragment implements MoodViewHolder.onItem
         RecyclerView.LayoutManager manager = new LinearLayoutManager(mContext) ;
         mRecycler.setLayoutManager(manager);
 
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mDataSet = getDataSet() ;
+        mAdapter.setData(mDataSet);
+        mAdapter.notifyDataSetChanged();
     }
 
     private List<AudioInfo> getDataSet(){
         manager = AudioInfoManager.getInstance() ;
         mDataSet = manager.getAllInfosDesc();
-        Log.i(TAG,"dataset :" + mDataSet) ;
+        Log.i(TAG, "dataset :" + mDataSet) ;
         return mDataSet ;
     }
 
     //recycler item click
     @Override
     public void onClick(View view, int position) {
-        Log.i("madroid", "position: " + position) ;
-        AudioManager audioManager = AudioManager.getInstance() ;
-        AudioInfo info = manager.getInfo(position) ;
-        audioManager.playAudio(info.path);
+        TextView textView = (TextView)view.findViewById(R.id.tv_file_name) ;
+        String name = textView.getText().toString();
+        Log.i(TAG, "position: " + position + "; name :" + name) ;
+        AudioInfo info = manager.getInfo(name) ;
+        palyAudio(info) ;
+    }
 
+    private void palyAudio(AudioInfo info) {
+        AudioManager audioManager = AudioManager.getInstance() ;
+        Log.i(TAG,"path: " + info.path) ;
+        audioManager.playAudio(info.path);
     }
 
     @Override

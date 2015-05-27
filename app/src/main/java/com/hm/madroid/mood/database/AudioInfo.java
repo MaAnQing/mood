@@ -55,6 +55,6 @@ public class AudioInfo extends Model {
     public String toString() {
 
         return "name: "+ name+ "; duration: "+ duration + "; date: " + date + "; mood: " +mood +
-                "; userId: " + userId + "; address:" + address + "; timestamp: " + timeStamp;
+                "; userId: " + userId + "; address:" + address + "; timestamp: " + timeStamp + "\n";
     }
 }

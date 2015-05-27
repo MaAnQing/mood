@@ -66,7 +66,7 @@
             android:layout_gravity="center_vertical"
             android:paddingStart="@dimen/msg_margin"
             android:paddingEnd="5dp"
-            android:src="@drawable/user_icon"/>
+            android:src="@drawable/ic_person_gray"/>
 
         </LinearLayout>
 
