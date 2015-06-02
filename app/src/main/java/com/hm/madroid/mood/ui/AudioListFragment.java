@@ -2,6 +2,7 @@ package com.hm.madroid.mood.ui;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -81,11 +82,13 @@ public class AudioListFragment extends Fragment implements MoodViewHolder.onItem
     //recycler item click
     @Override
     public void onClick(View view, int position) {
-        TextView textView = (TextView)view.findViewById(R.id.tv_file_name) ;
-        String name = textView.getText().toString();
-        Log.i(TAG, "position: " + position + "; name :" + name) ;
-        AudioInfo info = manager.getInfo(name) ;
-        palyAudio(info) ;
+//        TextView textView = (TextView)view.findViewById(R.id.tv_file_name) ;
+//        String name = textView.getText().toString();
+//        Log.i(TAG, "position: " + position + "; name :" + name) ;
+//        AudioInfo info = manager.getInfo(name) ;
+//        palyAudio(info) ;
+
+        startActivity(new Intent(getActivity(),AudioDetailActivity.class));
     }
 
     private void palyAudio(AudioInfo info) {

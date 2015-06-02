@@ -1,0 +1,155 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="@drawable/about_bg"
+    android:orientation="vertical"
+    >
+
+    <include layout="@layout/title_bar"/>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/audioInfoStyle"
+                    android:layout_marginStart="@dimen/margin_start"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/info_name"/>
+
+                <TextView
+                    android:layout_marginEnd="@dimen/margin_end"
+                    style="@style/audioInfoStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="--"/>
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:visibility="gone"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginStart="@dimen/margin_start"
+                    style="@style/audioInfoStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/info_mood"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"/>
+
+                <TextView
+                    style="@style/audioInfoStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="--"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginStart="@dimen/margin_start"
+                    style="@style/audioInfoStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/info_duration"/>
+
+                <TextView
+                    style="@style/audioInfoStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="--"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_item_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginStart="@dimen/margin_start"
+                    style="@style/audioInfoStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/info_date"/>
+
+                <TextView
+                    style="@style/audioInfoStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="--"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/content_space_height"
+                android:layout_height="@dimen/list_item_height"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginStart="@dimen/margin_start"
+                    style="@style/audioInfoStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/info_mood_txt"/>
+
+                <TextView
+                    style="@style/audioInfoStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:text="--"/>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <include
+        layout="@layout/title_bottom_bar" />
+
+</LinearLayout>

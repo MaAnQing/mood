@@ -49,7 +49,7 @@
     <string name="category_record_summary">普通录音设置</string>
     <string name="category_other_title">其他</string>
     <string name="category_other_summary">其他设置</string>
-    <string name="record_channel_title">双通道</string>
+    <string name="record_channel_title">立体声</string>
     <string name="record_channel_summary">勾选后，将以双通道录音</string>
     <string name="record_phone_title">通话时录音</string>
     <string name="record_phone_summary">勾选后，通话时软件将会在后台录音</string>
@@ -57,11 +57,27 @@
     <string name="toast_no_sdcard">没有内存卡, 插入内存卡后才能录音</string>
 
     <string name="about_title">基于Android手机客户端语音情感识别系统设计与实现</string>
-    <string name="about_content">语音情感识别, 即是通过说话者的语音状态判断出说话者的情感状态. 目前仅能识别Angry, Happy, Sad, Neutral四种情感.\n
-    在信息化时代，人们对信息获取和信息沟通方式提出了更加智能的要求，轻松便捷地解决一切日常问题成为业界争相寻求突破的着眼点。而语音识别技术以其得天独厚的优势越来越越多地进入到人们日常生活和工作的方方面面:让电脑、手机、玩具等各种机器设备能听懂人的命令，提供更为人性化的操作方式；在电话里对自动语音发出指令既能解决问题；用语音软件进行文字输入等等。\n
-        随着移动互联网时代的到来和智能手机的普及，人们对智能手机的依赖性越来越大。在可预知的未来，智能手机市场及其应用程序开发市场是具有很广阔的市场需求，从而会带动一系列的经济效益。占据智能手机市场半壁江山的Android是不可忽视的，相反应该引起足够的重视。因此，编写一些优秀的Android应用程序是必不可少的，其中基于Android手机客户端语音情感分析系统就是其中之一。\n
-        将语音情感识别和Android手机平台两大主流趋势融合为一体是具有创造性的。智能手机的便捷性加上语音情感分析系统的人性化交互，使得Android智能手机的用户体验更为人性化，足以改变用户的使用习惯，放弃传统需要用虚拟键盘与手机交互。甚至可以改变用户的生活方式，就像科幻电影里描述的那样——人与机器交流就像人与人之间交流那样自然、亲切、生动而富有情感。另一方面，优秀的客户体验会为其赢来庞大的用户群，从而产生一系列的经济效益。\n
-        本项目是基于语音情感识别项目下的一个子项目，主要完成对语音情感识别所需的语音元数据的采集，并将采集到的语音数据上传到服务器端，服务器端对元数据进行情感分析并将分析结果返回给Android客户端进行情感显示。牵涉到语音情感分析的具体细节这里不做过多讲解。</string>
+    <string name="about_content">随着移动互联网的飞速发展，人们对手机交互技术提出了更高的要求，即情感交互。情感交互可大致分为以下几种：人脸表情交互、语音情感交互、肢体行为情感交互、生理信号情感交互、文本信息中的情感和情感仿生代理等等。语音情感交互在情感交互中是具有举足轻重地位的。\n
+
+语音情感交互就是通过语音情感识别技术对人类的情感进行获取、识别和响应，可以使用户在自然和谐的交互模式下高效地完成任务。语音中的情感信息可以影响人们的交流状态。所谓“听话听音”，说话人利用不同情感表达某语句时，听者可能会有不同的反应。\n
+
+根据以上需求，基于Android的语音情感识别系统运用而生。该系统是一款能够识别说话人语音情感的Android应用程序。该程序是在Android SDK API21环境下编译而成，支持最低Android版本为Android4.4.2。该应用程序主要是Android端的语音采集和上传，并接收服务器返回的结果。\n
+
+该系统具有一下功能：
+
+采集语音，实现录音功能，并能显示音频文件列表。
+
+通话时录音，在使用者允许的情况下，可以进行通话录音。
+
+可以设置录音时的采样率，单通道或立体声。
+
+可以实现用户的注册和登录功能，可以保存用户的信息。
+
+基于Android的语音情感识别系统软件设计合理，界面友好，操作简便。可以很方便
+
+的供用户使用。
+
+</string>
 
     <string name="format_file_name">"MM月dd日 hh：mm"</string>
 
@@ -88,7 +104,7 @@
 
     <string name="record_sample_rate_title">采样率</string>
     <string name="record_sample_rate_summary">设置录音时的音频采样率</string>
-    <string name="record_sample_default">5</string>
+    <string name="record_sample_default">441000</string>
 
     <string-array name="record_sample_rate">
         <item>8000 HZ</item>
@@ -151,6 +167,15 @@
     <string name="title_activity_record_list">RecordListActivity</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_feedback">FeedbackActivity</string>
 
+    <string name="info_name">文件名称：</string>
+    <string name="info_mood">情感状态：</string>
+    <string name="info_duration">录音时长：</string>
+    <string name="info_date">录音时间：</string>
+    <string name="info_address">录音地点：</string>
+    <string name="info_mood_txt">题 外 话：</string>
+    <string name="info_say_txt">伤心</string>
+    <string name="info_happy_txt">高兴</string>
+    <string name="info_angry_txt">生气</string>
+    <string name="info_neutral">平静</string>
 </resources>

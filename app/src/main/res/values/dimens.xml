@@ -18,13 +18,42 @@
     <dimen name="user_info_margin_end">15dp</dimen>
     <dimen name="dialog_margin">20dp</dimen>
 
-    <dimen name="title_bar_height">55dp</dimen>
+    <dimen name="title_bar_height">56dp</dimen>
     <dimen name="common_header_back_title_font">16sp</dimen>
     <dimen name="common_header_title_font">18sp</dimen>
     <dimen name="common_header_padding">10dp</dimen>
 
     <dimen name="list_menu_start_margin">40dp</dimen>
 
+
+    <!-- 材料设计 单位定义 -->
+    <dimen name="margin_start">16dp</dimen>
+    <dimen name="margin_end">16dp</dimen>
+    <dimen name="margin_txt_start">72dp</dimen>
+
+    <!-- list-->
+    <dimen name="status_bar_height">24dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="subtitle_height">48dp</dimen>
+    <dimen name="list_item_height">72dp</dimen>
+
+    <!--list with subheaders-->
+    <dimen name="content_space_height">8dp</dimen>
+
+    <!--detail view -->
+    <dimen name="detail_icon_margin_end">32dp</dimen>
+
+    <!-- mixed content-->
+    <dimen name="mix_list_item_height">56dp</dimen>
+    <dimen name="mix_list_item_s_height">48dp</dimen>
+    <dimen name="mix_subtitle_height">48dp</dimen>
+
+    <!--Navigation drawer-->
+    <dimen name= "navigation_margin_end">56dp</dimen>
+
+    <dimen name="headline_size">24sp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="subhead_size">16sp</dimen>
 
 
 </resources>
