@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.hm.madroid.mood.R;
 
@@ -25,7 +26,7 @@ public class RegisterFragment extends Fragment {
     }
 
     private void initView(View view){
-
+        ((TextView)view.findViewById(R.id.home_back)).setText(R.string.user_register);
     }
 
 

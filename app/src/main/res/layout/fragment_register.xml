@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <include layout="@layout/title_bar"/>
+
+<ScrollView
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -107,7 +116,7 @@
                 android:layout_weight="2"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:hint="@string/user_phone"
+                android:hint="@string/user_phone_hint"
                 android:ems="10"
                 android:id="@+id/user_phone_value"
                 android:layout_gravity="center_horizontal" />
@@ -245,3 +254,4 @@
 
     </LinearLayout>
 </ScrollView>
+</LinearLayout>
